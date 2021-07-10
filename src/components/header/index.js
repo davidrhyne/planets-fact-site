@@ -7,7 +7,7 @@ export default function Header({children, ...restProps}) {
     )
 }
 
-Header.Title = function HeaderTitle({ to, children, ...restProps}) {
+Header.Title = function HeaderTitle({ children, ...restProps}) {
     return (
         <Title {...restProps}>{children}</Title>
     )

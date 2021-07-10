@@ -1,30 +1,31 @@
-// import React, {useState, useContext, createContext } from 'react'
+import React, {useState, useContext, createContext } from 'react'
 
-// const ThemeValueContext = createContext()
-// const ThemeUpdateValueContext = createContext()
+const CurrentPlanetContext = createContext()
+const CurrentPlanetUpdateContext = createContext()
 
-// export function useTheme() {
-//     return useContext(ThemeValueContext)
-// }
+//  hook to provide access to the current planet value
+export function useCurrentPlanet() {
+    return useContext(CurrentPlanetContext)
+}
 
-// export function useThemeUpdate() {
-//     return useContext(ThemeUpdateValueContext)
-// }
+// hook to provide access to updating the current planet value
+export function useCurrentPlanetUpdate() {
+    return useContext(CurrentPlanetUpdateContext)
+}
 
-// export function ThemeValueProvider({children}) {
+export function CurrentPlanetProvider({children}) {
 
-//     const [currentPlanet, setCurrentPlanet] = useState('Mercury')
+    const [currentPlanet, setCurrentPlanet] = useState('Mercury')
 
-//     function updateCurrentPlanet() {
-//         setCurrentPlanet()
-//     }
+    function updateCurrentPlanet(newPlanet) {
+        setCurrentPlanet(newPlanet)
+    }
 
-//     return (
-//         <ThemeValueContext.Provider value={currentPlanet}>
-//             <ThemeUpdateValueContext.Provider value={updateCurrentPlanet}>
-//                 {children}
-//             </ThemeUpdateValueContext.Provider>
-//         </ThemeValueContext.Provider>
-//     )
-
-// }
+    return (
+        <CurrentPlanetContext.Provider value={currentPlanet}>
+            <CurrentPlanetUpdateContext.Provider value={updateCurrentPlanet}>
+                {children}
+            </CurrentPlanetUpdateContext.Provider>
+        </CurrentPlanetContext.Provider>
+    )
+}

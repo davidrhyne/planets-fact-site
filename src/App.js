@@ -1,15 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 import { PlanetContextProvider } from './context/PlanetContext'
+import { CurrentPlanetProvider } from './context/CurrentPlanetContext'
+import { CategoryProvider } from './context/CategoryContext'
 import { Home } from './pages'
 
 
 function App() {
   return (
     <PlanetContextProvider>
-      <div>
-        <Home />
-      </div>
+      <CurrentPlanetProvider>
+        <CategoryProvider>
+          <div>
+            <Home />
+          </div>
+        </CategoryProvider>
+      </CurrentPlanetProvider>
     </PlanetContextProvider>
     
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, List, ListItem } from './styles/NavBar'
 import { usePlanetData } from '../../context/PlanetContext'
-
+import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 
 
 export default function NavBar({children, ...restProps}) {
@@ -20,11 +20,19 @@ NavBar.ListItem = function NavBarListItem({ children, ...restProps}) {
 
 NavBar.List = function NavBarList({ children, ...restProps}) {
     const planetData = usePlanetData();
-    planetData.forEach(planet => console.log('planets = ', planet.name))
+    //planetData.forEach(planet => console.log('planets = ', planet.name))
+
+    const currentPlanet = useCurrentPlanet();
+    console.log('current planet = ', currentPlanet)
+
+    const updateCurrentPlanet = useCurrentPlanetUpdate()
 
     function handlePlanetClick(planet) {
         console.log(`${planet} was clicked `)
+        updateCurrentPlanet(`${planet}`)
+        //console.log('updated planet = ', currentPlanet)
     }
+    
     return (
         <List {...restProps}>
             {
