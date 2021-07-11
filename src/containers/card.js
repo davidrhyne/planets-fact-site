@@ -44,7 +44,7 @@ export function CardContainer( {children, ...restProps}) {
 
     return (        
         <Card>
-            
+            <Card.Image />
             <Card.Title >THE PLANETS</Card.Title>
             <div>The current planet is {currentPlanet}</div>
             { isLoading ? 
@@ -69,13 +69,10 @@ export function CardContainer( {children, ...restProps}) {
                 </>
 
             }
-            {/* <Card.Button onClick={({target}) => handleClick(target.textContent)}>Overview</Card.Button>  */}            
-            {/* <Card.Button onClick={({target}) => handleClick(target.textContent)}>Internal Structure</Card.Button> */}
-            {/* <Card.Button onClick={({target}) => handleClick(target.textContent)}>Surface Geology</Card.Button> */}
             <Card.Button >Overview</Card.Button>
             <Card.Button >Internal Structure</Card.Button>
             <Card.Button >Surface Geology</Card.Button>
-            <Card.Image />
+
         </Card>
     )
 }

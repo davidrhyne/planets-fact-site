@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    /* background: ${props => props.theme.element}; */
-    background-color: dodgerblue;
+    background: ${props => props.theme.ACCENT}; 
+    /* background-color: dodgerblue; */
     color: white;
     display: flex;
     justify-content: space-between;

@@ -15,7 +15,10 @@ export function HeaderContainer( {children, ...restProps}) {
             <Header.Title >THE PLANETS</Header.Title>
             <NavBar>
                 <NavBar.List></NavBar.List>
+                <NavBar.MenuLogo></NavBar.MenuLogo>
+                <NavBar.DropDownMenu></NavBar.DropDownMenu>
             </NavBar>
+            
         </Header>
     )
 }

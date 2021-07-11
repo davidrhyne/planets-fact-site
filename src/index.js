@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CurrentPlanetProvider } from './context/CurrentPlanetContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CurrentPlanetProvider>
+      <App />
+    </CurrentPlanetProvider>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

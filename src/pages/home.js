@@ -2,6 +2,7 @@ import React, { useState, useEffect}  from 'react'
 import { usePlanetData} from '../context/PlanetContext'
 import { HeaderContainer } from '../containers/header'
 import { CardContainer } from '../containers/card'
+import { FooterContainer } from '../containers/footer'
 
 
 export default function Home() { 
@@ -16,7 +17,7 @@ export default function Home() {
         <div>
             <HeaderContainer>this is in the header, but probably should be deleted</HeaderContainer>
             <CardContainer />
-            <div>this with be the footer that needs to be constructed</div>
+            <FooterContainer />
 
         </div>
 

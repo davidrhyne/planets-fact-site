@@ -5,8 +5,6 @@ import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentP
 import { useCategory, useCategoryUpdate } from '../../context/CategoryContext'
 
 
-
-
 export default function Card({children, ...restProps}) {
 
    // const [ category, setCategory ] = useState('overview - state from card')

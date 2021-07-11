@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { COLOR_SCHEME } from '../../../constants/constants'
+
 
 export const Container = styled.div`
     /* background: ${props => props.theme.element}; */
@@ -60,6 +62,6 @@ export const Button = styled.div`
 `
 
 export const Image = styled.img`
-    width: 100%;
+    width: 50%;
     height: auto;
 `
