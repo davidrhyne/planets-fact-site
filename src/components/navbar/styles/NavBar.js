@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { COLOR_SCHEME } from '../../../constants/constants'
+
 
 export const Container = styled.div`
     /* background: ${props => props.theme.element}; */
-    background-color: lightblue;
+
     border: 1px navy solid;
     color: white;
     /* display: flex;
@@ -10,6 +12,7 @@ export const Container = styled.div`
     align-items: center;
     padding: 2em 1em;
     margin: 0 auto; */
+ 
 
     a {
         text-decoration: none;
@@ -25,7 +28,7 @@ export const Container = styled.div`
 `
 
 export const List = styled.div`
-    border: 1px red solid;
+
     display: flex;
     justify-content: flex-end;
 
@@ -59,7 +62,8 @@ export const ListItem = styled.div`
 
 export const MenuLogo = styled.img`
     display: block;
-    
+    /* adjust the filter to get close to #38384f */
+    filter: ${props => props.isMenuOpen ? 'invert(17%) sepia(7%) saturate(3029%) hue-rotate(201deg) brightness(52%) contrast(80%);' : null};
     width: 100%;
     height: auto;
 
@@ -68,14 +72,17 @@ export const MenuLogo = styled.img`
     }
 `
 
-export const DropDownMenu = styled.div`
-    background: white;
-    color: black;
-    border: 1px limegreen solid;
+export const DropDownMenu = styled.div`  
+    display: ${props => props.isMenuOpen ? 'block' : 'none'};
+
+    position: absolute;
+    width: 90%;
+    left: 0;
+    top: 100px;
 `
 
 export const DropDownMenuItem = styled.div`
-    background: dodgerblue;
+    background: dodgerblue;    
     color: white;
 
 `

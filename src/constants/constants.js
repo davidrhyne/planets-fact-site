@@ -11,6 +11,9 @@ export const COLOR_SCHEME = {
     // URANUS:'#1ec2a4',
     // NEPTUNE:'#2d68f0',
 
+    WHITE: '#fff',
+    PRIMARY: '#070724',
+    SECONDARY:'#38384f',
     MERCURY_PLANET: '#def4fc',
     VENUS_PLANET: '#f7cc7f',
     EARTH_PLANET: '#545bfe',

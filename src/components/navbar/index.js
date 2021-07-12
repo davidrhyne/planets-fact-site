@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, List, ListItem, MenuLogo, DropDownMenu, DropDownMenuItem } from './styles/NavBar'
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 
 
 export default function NavBar({children, ...restProps}) {
+
+    
+    
     return (
         <Container {...restProps}>{children}</Container>
     )
@@ -56,15 +59,16 @@ NavBar.List = function NavBarList({ children, ...restProps}) {
 
 NavBar.MenuLogo = function NavBarMenuLogo({ children, ...restProps}) {
 
-    function handleMenuClick() {
-        console.log(" the menu was clicked, so now what ?! ")
-    }
+    // function handleMenuClick() {
+    //     console.log(" the menu was clicked, so now what ?! ")
+    // }
 
     const imageSource = `images/icon-hamburger.svg`
+    
     return (
         <MenuLogo 
             src={imageSource}
-            onClick={handleMenuClick}
+            // onClick={handleMenuClick}
             {...restProps}>
                 {children}
         </MenuLogo>
@@ -87,13 +91,18 @@ NavBar.DropDownMenu = function NavBarDropDownMenu({ children, ...restProps}) {
         //console.log('updated planet = ', currentPlanet)
     }    
 
+    
+
     return (
         <DropDownMenu 
             {...restProps}>
             {
                 planetData.map(planet => {
                     return (
-                        <DropDownMenuItem key={planet.name} onClick={ () => handleDropDownMenuClick(planet.name)}>
+                        <DropDownMenuItem key={planet.name} 
+                            onClick={ () => handleDropDownMenuClick(planet.name) }
+                          
+                            >
                             {planet.name.toUpperCase()}
                         </DropDownMenuItem>
                     )

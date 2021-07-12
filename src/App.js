@@ -5,6 +5,8 @@ import { Home } from './pages'
 import {  ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useCurrentPlanet } from './context/CurrentPlanetContext'
 import {THEME} from './constants/themes'
+import { COLOR_SCHEME } from './constants/constants'
+
 
 function App() {
 
@@ -27,8 +29,9 @@ function App() {
       font-weight: 400;
       box-sizing: border-box;
       margin: 0 auto;
-      background: #070724;
-      color: #fff;
+      background: ${COLOR_SCHEME.PRIMARY};
+      color: ${COLOR_SCHEME.WHITE};
+      background-image: url('./images/background-stars.svg');
   }
 `
   return (

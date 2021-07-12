@@ -1,24 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header, NavBar } from '../components';
-// import * as ROUTES from '../constants/routes';
-// import { useTheme, useThemeUpdate } from '../context/ThemeValueContext'
-// import { useHasError } from '../context/CountryDataContext'
 
 export function HeaderContainer( {children, ...restProps}) {
+    // state to display or hide the menu
+    const [ isMenuOpen, setIsMenuOpen ] = useState(false)
 
-    // const handleToggle = useThemeUpdate()
-    // const isDarkTheme = useTheme()
-    // const hasError = useHasError()
+    function handleMenuLogoClick() {
+        // toggle current boolean value 
+        setIsMenuOpen(prevValue => !prevValue)
+    }
 
     return (        
         <Header>
             <Header.Title >THE PLANETS</Header.Title>
-            <NavBar>
+            <NavBar >
                 <NavBar.List></NavBar.List>
-                <NavBar.MenuLogo></NavBar.MenuLogo>
-                <NavBar.DropDownMenu></NavBar.DropDownMenu>
-            </NavBar>
-            
+                <NavBar.MenuLogo isMenuOpen={isMenuOpen} onClick={handleMenuLogoClick}></NavBar.MenuLogo>
+                <NavBar.DropDownMenu onClick={handleMenuLogoClick} isMenuOpen={isMenuOpen}></NavBar.DropDownMenu>
+            </NavBar>            
         </Header>
     )
 }

@@ -4,7 +4,7 @@ import { COLOR_SCHEME } from '../../../constants/constants'
 
 export const Container = styled.div`
     /* background: ${props => props.theme.element}; */
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
     color: white;
     display: flex;
     flex-direction: column;
