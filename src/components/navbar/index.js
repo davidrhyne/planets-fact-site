@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, List, ListItem, MenuLogo, DropDownMenu, DropDownMenuItem } from './styles/NavBar'
+import { Container, List, ListItem, MenuLogo, DropDownMenu, DropDownMenuItem, DropDownMenuItemPlanet, DropDownMenuText, DropDownMenuItemChevron } from './styles/NavBar'
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 
@@ -91,7 +91,7 @@ NavBar.DropDownMenu = function NavBarDropDownMenu({ children, ...restProps}) {
         //console.log('updated planet = ', currentPlanet)
     }    
 
-    
+    const imageSource = `images/icon-chevron.svg`
 
     return (
         <DropDownMenu 
@@ -101,9 +101,11 @@ NavBar.DropDownMenu = function NavBarDropDownMenu({ children, ...restProps}) {
                     return (
                         <DropDownMenuItem key={planet.name} 
                             onClick={ () => handleDropDownMenuClick(planet.name) }
-                          
+                            planet={planet.name}
                             >
-                            {planet.name.toUpperCase()}
+                                <DropDownMenuItemPlanet planet={planet.name}/>
+                                <DropDownMenuText >{planet.name.toUpperCase()}</DropDownMenuText>
+                                <DropDownMenuItemChevron src={imageSource} />
                         </DropDownMenuItem>
                     )
                 })

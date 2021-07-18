@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR_SCHEME } from '../../../constants/constants'
+import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT } from '../../../constants/constants'
 
 
 export const Container = styled.div`
@@ -28,7 +28,9 @@ export const Container = styled.div`
 `
 
 export const Title = styled.div`
-    /* font-size: 800; */
+    font-family: ${FONT_FAMILY.SECONDARY};
+    font-size: 2.5rem;
+    font-weight: ${FONT_WEIGHT.MEDIUM};
 
     @media (min-width: 700px) {
         font-size: 1.5rem;
@@ -40,7 +42,7 @@ export const Title = styled.div`
 `
 
 export const Text = styled.div`
-    /* font-size: 800; */
+
 
     @media (min-width: 700px) {
         font-size: 1.5rem;
@@ -64,4 +66,16 @@ export const Button = styled.div`
 export const Image = styled.img`
     width: 50%;
     height: auto;
+`
+
+export const Label = styled.div`
+    font-size: .75rem;
+    font-weight: ${FONT_WEIGHT.BOLD};
+    color: ${COLOR_SCHEME.SECONDARY};
+`
+
+export const Link = styled.a`
+    font-size: .75rem;
+    font-weight: ${FONT_WEIGHT.BOLD};
+    color: ${COLOR_SCHEME.SECONDARY};
 `

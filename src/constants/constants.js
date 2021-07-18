@@ -33,5 +33,15 @@ export const BOX_SHADOW = {
     PRIMARY_COLOR: '0px 10px 15px 0px rgba(91,164,164,.4);'
 }
 
+export const FONT_WEIGHT = {
+    REGULAR: 400,
+    MEDIUM: 500,
+    BOLD: 700
+}
+
+export const FONT_FAMILY = {
+    PRIMARY: 'Spartan',
+    SECONDARY: 'Antonio'
+}
 // font-family: 'Antonio', sans-serif;
 // font-family: 'Spartan', sans-serif;

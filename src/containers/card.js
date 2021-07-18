@@ -45,20 +45,27 @@ export function CardContainer( {children, ...restProps}) {
     return (        
         <Card>
             <Card.Image />
-            <Card.Title >THE PLANETS</Card.Title>
-            <div>The current planet is {currentPlanet}</div>
+            {/* <Card.Title >THE PLANETS</Card.Title> */}
+            {/* <div>The current planet is {currentPlanet}</div> */}
             { isLoading ? 
                 <div>planetary data is loading</div> :
                 <>
-                    <div>{currentPlanetData.name}</div>
+                    <Card.Title >{currentPlanetData.name}</Card.Title>
+                    {/* <div>{currentPlanetData.name}</div> */}
                     {/* <div>{currentPlanetData.overview.content}</div> */}
-                    <div>
+                    <Card.Text>
                         {category === 'Overview' ? 
                             currentPlanetData.overview.content :
                             category === 'Internal Structure' ?
                             currentPlanetData.structure.content :
                             currentPlanetData.geology.content}
-                    </div>
+                    </Card.Text>
+                    <Card.Label>Source : </Card.Label>
+                    <Card.Link href={category === 'Overview' ? 
+                            currentPlanetData.overview.source :
+                            category === 'Internal Structure' ?
+                            currentPlanetData.structure.source :
+                            currentPlanetData.geology.source}>Wikipedia</Card.Link>
                     {/* <div>
                         {category === 'Overview' ? 
                             currentPlanetData.overview.content :

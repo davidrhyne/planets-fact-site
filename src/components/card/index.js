@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Title, Text, Button, Image} from './styles/Card'
+import { Container, Title, Text, Button, Image, Label, Link} from './styles/Card'
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 import { useCategory, useCategoryUpdate } from '../../context/CategoryContext'
@@ -23,6 +23,18 @@ Card.Title = function CardTitle({ children, ...restProps}) {
 Card.Text = function CardText({ children, ...restProps}) {
     return (
         <Text {...restProps}>{children}</Text>
+    )
+}
+
+Card.Label = function CardLabel({ children, ...restProps}) {
+    return (
+        <Label {...restProps}>{children}</Label>
+    )
+}
+
+Card.Link = function CardLink({ children, ...restProps}) {
+    return (
+        <Link {...restProps} target="_blank">{children}</Link>
     )
 }
 

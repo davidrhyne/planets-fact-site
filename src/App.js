@@ -5,7 +5,7 @@ import { Home } from './pages'
 import {  ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useCurrentPlanet } from './context/CurrentPlanetContext'
 import {THEME} from './constants/themes'
-import { COLOR_SCHEME } from './constants/constants'
+import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT } from './constants/constants'
 
 
 function App() {
@@ -24,9 +24,9 @@ function App() {
   // using styled-components createGlobalStyle for some global CSS values
   const GlobalStyle = createGlobalStyle`
     body {
-      font-family: 'Spartan', sans-serif;
+      font-family: ${FONT_FAMILY.PRIMARY}, sans-serif;
       font-size: .6875rem;
-      font-weight: 400;
+      font-weight: ${FONT_WEIGHT.REGULAR};
       box-sizing: border-box;
       margin: 0 auto;
       background: ${COLOR_SCHEME.PRIMARY};
