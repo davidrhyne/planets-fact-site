@@ -44,6 +44,11 @@ export function CardContainer( {children, ...restProps}) {
 
     return (        
         <Card>
+            <Card.ButtonGroup>
+                <Card.Button >Overview</Card.Button>
+                <Card.Button >Internal</Card.Button>
+                <Card.Button >Surface</Card.Button>
+            </Card.ButtonGroup>
             <Card.Image />
             {/* <Card.Title >THE PLANETS</Card.Title> */}
             {/* <div>The current planet is {currentPlanet}</div> */}
@@ -56,16 +61,35 @@ export function CardContainer( {children, ...restProps}) {
                     <Card.Text>
                         {category === 'Overview' ? 
                             currentPlanetData.overview.content :
-                            category === 'Internal Structure' ?
+                            category === 'Internal Structure' || category === 'Internal' ?
                             currentPlanetData.structure.content :
                             currentPlanetData.geology.content}
                     </Card.Text>
                     <Card.Label>Source : </Card.Label>
                     <Card.Link href={category === 'Overview' ? 
                             currentPlanetData.overview.source :
-                            category === 'Internal Structure' ?
+                            category === 'Internal Structure' || category === 'Internal' ?
                             currentPlanetData.structure.source :
-                            currentPlanetData.geology.source}>Wikipedia</Card.Link>
+                            currentPlanetData.geology.source}>
+                                Wikipedia
+                                <Card.LinkIcon src="./images/icon-source.svg"/>
+                    </Card.Link>
+                    <Card.Factoid>
+                        <Card.FactoidLabel>Rotation Time</Card.FactoidLabel>
+                        <Card.FactoidFact>{currentPlanetData.rotation}</Card.FactoidFact>
+                    </Card.Factoid>
+                    <Card.Factoid>
+                        <Card.FactoidLabel>Revolution Time</Card.FactoidLabel>
+                        <Card.FactoidFact>{currentPlanetData.revolution}</Card.FactoidFact>
+                    </Card.Factoid>
+                    <Card.Factoid>
+                        <Card.FactoidLabel>Radius</Card.FactoidLabel>
+                        <Card.FactoidFact>{currentPlanetData.radius}</Card.FactoidFact>
+                    </Card.Factoid>
+                    <Card.Factoid>
+                        <Card.FactoidLabel>Average Temp.</Card.FactoidLabel>
+                        <Card.FactoidFact>{currentPlanetData.temperature}</Card.FactoidFact>
+                    </Card.Factoid>
                     {/* <div>
                         {category === 'Overview' ? 
                             currentPlanetData.overview.content :
@@ -76,9 +100,7 @@ export function CardContainer( {children, ...restProps}) {
                 </>
 
             }
-            <Card.Button >Overview</Card.Button>
-            <Card.Button >Internal Structure</Card.Button>
-            <Card.Button >Surface Geology</Card.Button>
+
 
         </Card>
     )
