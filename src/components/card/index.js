@@ -3,7 +3,8 @@ import { Container, Title, Text, Void, Button, ButtonGroup, ImageContainer, Imag
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 import { useCategory, useCategoryUpdate } from '../../context/CategoryContext'
-import { PLANET_RATIO } from '../../constants/constants'
+import { COLOR_SCHEME, PLANET_RATIO } from '../../constants/constants'
+
 
 export default function Card({children, ...restProps}) {
 
@@ -60,7 +61,7 @@ Card.ButtonGroup = function CardButtonGroup({ children, ...restProps}) {
 
 
     return (
-        <ButtonGroup {...restProps}>{children}</ButtonGroup>
+        <ButtonGroup  {...restProps}>{children}</ButtonGroup>
     )
 }
 
@@ -68,13 +69,29 @@ Card.Button = function CardButton({ children, ...restProps}) {
     const currentPlanet = useCurrentPlanet()
     // console.log('button group current planet =', currentPlanet)
 
+    const category = useCategory()
+    console.log('category = ', category.toLowerCase())
+
     const updateCategory = useCategoryUpdate();
     function handleButtonClick(value) {
         //console.log('card button was clicked = ', value)
         updateCategory(value)
+
     }
+
+    function getPlanetAccentColor() {
+        return currentPlanet === 'Mercury' ? COLOR_SCHEME.MERCURY : 
+        currentPlanet === 'Venus' ? COLOR_SCHEME.VENUS :
+        currentPlanet === 'Earth' ? COLOR_SCHEME.EARTH :
+        currentPlanet === 'Mars' ? COLOR_SCHEME.MARS :
+        currentPlanet === 'Jupiter' ? COLOR_SCHEME.JUPITER :
+        currentPlanet === 'Saturn' ? COLOR_SCHEME.SATURN :
+        currentPlanet === 'Uranus' ? COLOR_SCHEME.URANUS :
+            COLOR_SCHEME.NEPTUNE 
+    }
+
     return (
-        <Button {...restProps} planet={currentPlanet} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
+        <Button {...restProps} category={category.toLowerCase()}  planet={currentPlanet} color={getPlanetAccentColor()} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
         // <Button {...restProps} >{children}</Button>
     )
 }

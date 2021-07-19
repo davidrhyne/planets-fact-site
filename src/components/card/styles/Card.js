@@ -50,6 +50,7 @@ export const Text = styled.div`
 `
 
 export const ButtonGroup = styled.div`
+    
     display: flex;
     justify-content: space-evenly;    
     text-transform: uppercase;
@@ -68,17 +69,31 @@ export const ButtonGroup = styled.div`
     }
 `
 
-
-
 export const Button = styled.div`
     /* border: 1px magenta solid; */
     padding: 2em .5em;
     margin: 0 2em;
     cursor: pointer;
 
+    box-shadow: ${props => props.overview && props.category === 'overview' ? 
+        `inset 0px -3px 0 ${props.color}` : null } ;  
+    box-shadow: ${props => props.internal && props.category === 'internal' ? 
+        `inset 0px -3px 0 ${props.color}` : null } ;  
+    box-shadow: ${props => props.surface && props.category === 'surface' ? 
+        `inset 0px -3px 0 ${props.color}` : null  } ;  
+
+    color: ${props => props.overview && props.category === 'overview' ? 
+        `${COLOR_SCHEME.WHITE}` : null } ;  
+    color: ${props => props.internal && props.category === 'internal' ? 
+        `${COLOR_SCHEME.WHITE}`  : null } ;  
+    color: ${props => props.surface && props.category === 'surface' ? 
+        `${COLOR_SCHEME.WHITE}`  : null  } ;  
+
+    /* background: ${props => props.color === 'COLOR_SCHEME.MERCURY_PLANET' ? 'lime' : 'pink'}; */
+
     &:hover {        
         color: ${COLOR_SCHEME.WHITE}; 
-        
+        background: ${COLOR_SCHEME.SECONDARY};
         /* border-bottom: 3px solid ${props => 
         props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
         props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
@@ -89,7 +104,7 @@ export const Button = styled.div`
         props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
             COLOR_SCHEME.NEPTUNE_PLANET}; */
 
-        box-shadow: inset 0px -3px 0 ${props => 
+        /* box-shadow: inset 0px -3px 0 ${props => 
             props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
             props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
             props.planet === 'Earth' ? COLOR_SCHEME.EARTH_PLANET :
@@ -97,7 +112,7 @@ export const Button = styled.div`
             props.planet === 'Jupiter' ? COLOR_SCHEME.JUPITER_PLANET :
             props.planet === 'Saturn' ? COLOR_SCHEME.SATURN_PLANET :
             props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
-                COLOR_SCHEME.NEPTUNE_PLANET};            
+                COLOR_SCHEME.NEPTUNE_PLANET};             */
     }
 
     @media (min-width: 700px) {

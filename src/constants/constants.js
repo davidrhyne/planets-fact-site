@@ -2,14 +2,14 @@ export const COLOR_SCHEME = {
     // WHITE: '#fff',
     // PRIMARY: '#070724',
     // SECONDARY:'#38384f',
-    // MERCURY: '#419ebb',
-    // VENUS: '#eda249',
-    // EARTH: '#6f2ed6',
-    // MARS: '#d14c32',
-    // JUPITER: '#d83a34',
-    // SATURN: '#cd5120',
-    // URANUS:'#1ec2a4',
-    // NEPTUNE:'#2d68f0',
+    MERCURY: '#419ebb',
+    VENUS: '#eda249',
+    EARTH: '#6f2ed6',
+    MARS: '#d14c32',
+    JUPITER: '#d83a34',
+    SATURN: '#cd5120',
+    URANUS:'#1ec2a4',
+    NEPTUNE:'#2d68f0',
 
     WHITE: '#fff',
     PRIMARY: '#070724',
@@ -44,8 +44,6 @@ export const FONT_FAMILY = {
     PRIMARY: 'Spartan',
     SECONDARY: 'Antonio'
 }
-// font-family: 'Antonio', sans-serif;
-// font-family: 'Spartan', sans-serif;
 
 export const PLANET_RATIO = {
     MERCURY: '.55',

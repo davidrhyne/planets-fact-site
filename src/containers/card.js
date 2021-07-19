@@ -45,11 +45,11 @@ export function CardContainer( {children, ...restProps}) {
     return (        
         <Card>
             <Card.ButtonGroup>
-                <Card.Button >Overview</Card.Button>
+                <Card.Button overview >Overview</Card.Button>
                 {/* <Card.Void>blank</Card.Void> */}
-                <Card.Button >Internal</Card.Button>
+                <Card.Button internal >Internal</Card.Button>
                 {/* <Card.Void>blank</Card.Void> */}
-                <Card.Button >Surface</Card.Button>
+                <Card.Button surface >Surface</Card.Button>
             </Card.ButtonGroup>
             {/* <Card.Image /> */}
             <Card.ImageContainer>
