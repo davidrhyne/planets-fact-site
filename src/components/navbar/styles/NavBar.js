@@ -10,6 +10,7 @@ export const Container = styled.div`
     align-items: center;
     padding: 2em 1em;
     margin: 0 auto; */
+    z-index: 9;
  
 
     a {

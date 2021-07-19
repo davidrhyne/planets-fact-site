@@ -34,7 +34,4 @@ export const Title = styled.div`
         font-size: 1.5rem;
     }
 
-    &:hover {        
-        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};    
-    }
 `

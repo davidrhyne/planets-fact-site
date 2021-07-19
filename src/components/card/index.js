@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Container, Title, Text, Button, ButtonGroup, Image, Label, Link, LinkIcon, Factoid, FactoidLabel, FactoidFact} from './styles/Card'
+import { Container, Title, Text, Void, Button, ButtonGroup, ImageContainer, Image, ImageAccent, Label, LinkContainer, Link, LinkIcon, Factoid, FactoidLabel, FactoidFact} from './styles/Card'
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 import { useCategory, useCategoryUpdate } from '../../context/CategoryContext'
-
+import { PLANET_RATIO } from '../../constants/constants'
 
 export default function Card({children, ...restProps}) {
 
@@ -20,6 +20,12 @@ Card.Title = function CardTitle({ children, ...restProps}) {
     )
 }
 
+Card.Void = function CardVoid({ children, ...restProps}) {
+    return (
+        <Void {...restProps}>{children}</Void>
+    )
+}
+
 Card.Text = function CardText({ children, ...restProps}) {
     return (
         <Text {...restProps}>{children}</Text>
@@ -29,6 +35,12 @@ Card.Text = function CardText({ children, ...restProps}) {
 Card.Label = function CardLabel({ children, ...restProps}) {
     return (
         <Label {...restProps}>{children}</Label>
+    )
+}
+
+Card.LinkContainer = function CardLinkContainer({ children, ...restProps}) {
+    return (
+        <LinkContainer {...restProps} target="_blank">{children}</LinkContainer>
     )
 }
 
@@ -67,6 +79,19 @@ Card.Button = function CardButton({ children, ...restProps}) {
     )
 }
 
+Card.ImageContainer = function CardImageContainer({ children, ...restProps}) {
+    return (
+        <ImageContainer {...restProps} >{children}</ImageContainer>
+    )
+}
+
+
+Card.ImageAccent = function CardImageAccent({ ...restProps}) {
+    return (
+        <ImageAccent {...restProps} />
+    )
+}
+
 Card.Image = function CardImage({ ...restProps}) {
     
     const currentPlanet = useCurrentPlanet()
@@ -75,10 +100,22 @@ Card.Image = function CardImage({ ...restProps}) {
     const pictureSuffix = category.slice(0,8) !== 'Internal' ? "" : "-internal"
     const imageSource = `images/planet-${currentPlanet.toLowerCase()}${pictureSuffix}.svg`
     const geologySource = `images/geology-${currentPlanet.toLowerCase()}.png`
+
+    
+    const ratio = currentPlanet === 'Mercury' ? PLANET_RATIO.MERCURY : 
+        currentPlanet === 'Venus' ? PLANET_RATIO.VENUS :
+        currentPlanet === 'Earth' ? PLANET_RATIO.EARTH :
+        currentPlanet === 'Mars' ? PLANET_RATIO.MARS :
+        currentPlanet === 'Jupiter' ? PLANET_RATIO.JUPITER :
+        currentPlanet === 'Saturn' ? PLANET_RATIO.SATURN :
+        currentPlanet === 'Uranus' ? PLANET_RATIO.URANUS :
+            PLANET_RATIO.NEPTUNE
+    console.log('ratio = ', ratio)
+
     return (
         <>
-            <Image src={imageSource}{...restProps} />
-            { category.slice(0,7) === 'Surface' ? <Image src={geologySource}{...restProps} /> : null  }
+            <Image ratio={ratio} src={imageSource}{...restProps} />
+            { category.slice(0,7) === 'Surface' ? <ImageAccent src={geologySource}{...restProps} /> : null  }
         </>
     )
 }

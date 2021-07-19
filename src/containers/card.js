@@ -46,10 +46,15 @@ export function CardContainer( {children, ...restProps}) {
         <Card>
             <Card.ButtonGroup>
                 <Card.Button >Overview</Card.Button>
+                {/* <Card.Void>blank</Card.Void> */}
                 <Card.Button >Internal</Card.Button>
+                {/* <Card.Void>blank</Card.Void> */}
                 <Card.Button >Surface</Card.Button>
             </Card.ButtonGroup>
-            <Card.Image />
+            {/* <Card.Image /> */}
+            <Card.ImageContainer>
+                <Card.Image />
+            </Card.ImageContainer>
             {/* <Card.Title >THE PLANETS</Card.Title> */}
             {/* <div>The current planet is {currentPlanet}</div> */}
             { isLoading ? 
@@ -65,15 +70,18 @@ export function CardContainer( {children, ...restProps}) {
                             currentPlanetData.structure.content :
                             currentPlanetData.geology.content}
                     </Card.Text>
-                    <Card.Label>Source : </Card.Label>
-                    <Card.Link href={category === 'Overview' ? 
-                            currentPlanetData.overview.source :
-                            category === 'Internal Structure' || category === 'Internal' ?
-                            currentPlanetData.structure.source :
-                            currentPlanetData.geology.source}>
-                                Wikipedia
-                                <Card.LinkIcon src="./images/icon-source.svg"/>
-                    </Card.Link>
+
+                    <Card.LinkContainer>
+                        <Card.Label>Source : </Card.Label>
+                        <Card.Link href={category === 'Overview' ? 
+                                currentPlanetData.overview.source :
+                                category === 'Internal Structure' || category === 'Internal' ?
+                                currentPlanetData.structure.source :
+                                currentPlanetData.geology.source}>
+                                    Wikipedia
+                                    <Card.LinkIcon src="./images/icon-source.svg"/>
+                        </Card.Link>
+                    </Card.LinkContainer>
                     <Card.Factoid>
                         <Card.FactoidLabel>Rotation Time</Card.FactoidLabel>
                         <Card.FactoidFact>{currentPlanetData.rotation}</Card.FactoidFact>

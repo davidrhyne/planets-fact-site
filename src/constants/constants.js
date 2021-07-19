@@ -46,3 +46,14 @@ export const FONT_FAMILY = {
 }
 // font-family: 'Antonio', sans-serif;
 // font-family: 'Spartan', sans-serif;
+
+export const PLANET_RATIO = {
+    MERCURY: '.55',
+    VENUS: '.65',
+    EARTH: '.676',
+    MARS: '.65',
+    JUPITER: '.875',
+    SATURN: '1',
+    URANUS:'.688',
+    NEPTUNE: '.675'
+}
