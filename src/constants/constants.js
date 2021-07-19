@@ -15,6 +15,7 @@ export const COLOR_SCHEME = {
     PRIMARY: '#070724',
     SECONDARY:'#38384f',
     TERTIARY:'#838391',
+    LIGHT_GRAY:'#bbb',
     MERCURY_PLANET: '#def4fc',
     VENUS_PLANET: '#f7cc7f',
     EARTH_PLANET: '#545bfe',

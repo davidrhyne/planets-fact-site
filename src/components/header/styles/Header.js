@@ -5,7 +5,7 @@ export const Container = styled.div`
     /* background: ${props => props.theme.ACCENT};  */
     /* background-color: dodgerblue; */
     font-family: 'Antonio',sans-serif;
-    color: white;
+    color: ${COLOR_SCHEME.WHITE};
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,20 +18,22 @@ export const Container = styled.div`
     }
 
     @media (min-width: 700px) {
-        padding: 2em 6em;        
+        flex-direction: column;
+        padding: 3em;
     }
 
     @media (min-width: 1500px) {
-        padding: 2em 10%;        
+        /* padding: 2em 10%;         */
     }
 `
 
 export const Title = styled.div`
     /* font-size: 800; */
     font-size: 1.75rem;
+    border: 1px solid dodgerblue;
 
-    @media (min-width: 700px) {
-        font-size: 1.5rem;
+    @media (min-width: 750px) {
+        /* font-size: 1.5rem; */
     }
 
 `

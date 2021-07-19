@@ -45,11 +45,22 @@ export function CardContainer( {children, ...restProps}) {
     return (        
         <Card>
             <Card.ButtonGroup>
-                <Card.Button overview >Overview</Card.Button>
+                <Card.Button overview >
+                    <Card.ButtonPrefix>01</Card.ButtonPrefix>
+                    Overview
+                </Card.Button>
                 {/* <Card.Void>blank</Card.Void> */}
-                <Card.Button internal >Internal</Card.Button>
+                <Card.Button internal >
+                    <Card.ButtonPrefix>02</Card.ButtonPrefix>
+                    Internal Structure
+                    
+                </Card.Button>
                 {/* <Card.Void>blank</Card.Void> */}
-                <Card.Button surface >Surface</Card.Button>
+                <Card.Button surface >
+                    <Card.ButtonPrefix>03</Card.ButtonPrefix>
+                    Surface Geology
+                
+                </Card.Button>
             </Card.ButtonGroup>
             {/* <Card.Image /> */}
             <Card.ImageContainer>
@@ -82,22 +93,24 @@ export function CardContainer( {children, ...restProps}) {
                                     <Card.LinkIcon src="./images/icon-source.svg"/>
                         </Card.Link>
                     </Card.LinkContainer>
-                    <Card.Factoid>
-                        <Card.FactoidLabel>Rotation Time</Card.FactoidLabel>
-                        <Card.FactoidFact>{currentPlanetData.rotation}</Card.FactoidFact>
-                    </Card.Factoid>
-                    <Card.Factoid>
-                        <Card.FactoidLabel>Revolution Time</Card.FactoidLabel>
-                        <Card.FactoidFact>{currentPlanetData.revolution}</Card.FactoidFact>
-                    </Card.Factoid>
-                    <Card.Factoid>
-                        <Card.FactoidLabel>Radius</Card.FactoidLabel>
-                        <Card.FactoidFact>{currentPlanetData.radius}</Card.FactoidFact>
-                    </Card.Factoid>
-                    <Card.Factoid>
-                        <Card.FactoidLabel>Average Temp.</Card.FactoidLabel>
-                        <Card.FactoidFact>{currentPlanetData.temperature}</Card.FactoidFact>
-                    </Card.Factoid>
+                    <Card.FactoidContainer>
+                        <Card.Factoid>
+                            <Card.FactoidLabel>Rotation Time</Card.FactoidLabel>
+                            <Card.FactoidFact>{currentPlanetData.rotation}</Card.FactoidFact>
+                        </Card.Factoid>
+                        <Card.Factoid>
+                            <Card.FactoidLabel>Revolution Time</Card.FactoidLabel>
+                            <Card.FactoidFact>{currentPlanetData.revolution}</Card.FactoidFact>
+                        </Card.Factoid>
+                        <Card.Factoid>
+                            <Card.FactoidLabel>Radius</Card.FactoidLabel>
+                            <Card.FactoidFact>{currentPlanetData.radius}</Card.FactoidFact>
+                        </Card.Factoid>
+                        <Card.Factoid>
+                            <Card.FactoidLabel>Average Temp.</Card.FactoidLabel>
+                            <Card.FactoidFact>{currentPlanetData.temperature}</Card.FactoidFact>
+                        </Card.Factoid>
+                    </Card.FactoidContainer>
                     {/* <div>
                         {category === 'Overview' ? 
                             currentPlanetData.overview.content :

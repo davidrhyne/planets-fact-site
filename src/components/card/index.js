@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Title, Text, Void, Button, ButtonGroup, ImageContainer, Image, ImageAccent, Label, LinkContainer, Link, LinkIcon, Factoid, FactoidLabel, FactoidFact} from './styles/Card'
+import { Container, Title, Text, Void, ButtonPrefix, ButtonSuffix, Button, ButtonGroup, ImageContainer, Image, ImageAccent, Label, LinkContainer, Link, LinkIcon, FactoidContainer, Factoid, FactoidLabel, FactoidFact} from './styles/Card'
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 import { useCategory, useCategoryUpdate } from '../../context/CategoryContext'
@@ -58,10 +58,20 @@ Card.LinkIcon = function CardLinkIcon({ children, ...restProps}) {
 }
 
 Card.ButtonGroup = function CardButtonGroup({ children, ...restProps}) {
-
-
     return (
         <ButtonGroup  {...restProps}>{children}</ButtonGroup>
+    )
+}
+
+Card.ButtonPrefix = function CardButtonPrefix({ children, ...restProps}) {
+    return (
+        <ButtonPrefix  {...restProps}>{children}</ButtonPrefix>
+    )
+}
+
+Card.ButtonSuffix = function CardButtonSuffix({ children, ...restProps}) {
+    return (
+        <ButtonSuffix  {...restProps}>{children}</ButtonSuffix>
     )
 }
 
@@ -70,12 +80,22 @@ Card.Button = function CardButton({ children, ...restProps}) {
     // console.log('button group current planet =', currentPlanet)
 
     const category = useCategory()
-    console.log('category = ', category.toLowerCase())
+    console.log('category = ', category)
 
     const updateCategory = useCategoryUpdate();
     function handleButtonClick(value) {
-        //console.log('card button was clicked = ', value)
-        updateCategory(value)
+
+        // if the prefix is clicked instead of anywhere else on the button
+        // then adjust the value to the expected category value
+        if (value === '01') {
+            updateCategory('Overview')
+        } else if (value === '02') {
+            updateCategory('Internal Structure')
+        } else if (value === '03') {
+            updateCategory('Surface Geology')
+        } else {
+            updateCategory(value.slice(2))
+        }
 
     }
 
@@ -134,6 +154,12 @@ Card.Image = function CardImage({ ...restProps}) {
             <Image ratio={ratio} src={imageSource}{...restProps} />
             { category.slice(0,7) === 'Surface' ? <ImageAccent src={geologySource}{...restProps} /> : null  }
         </>
+    )
+}
+
+Card.FactoidContainer = function CardFactoidContainer({ children, ...restProps}) {
+    return (
+        <FactoidContainer {...restProps} >{children}</FactoidContainer>
     )
 }
 

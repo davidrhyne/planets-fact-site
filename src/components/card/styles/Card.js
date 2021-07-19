@@ -15,7 +15,19 @@ export const Container = styled.div`
     /* gap: 1em; */
 
     @media (min-width: 700px) {
-        
+        padding: 2em;
+        display: grid;
+        margin: 0 auto;
+        gap: 0 1em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "image image"
+            "title buttons"
+            "text buttons"
+            "links buttons"
+            "factoids factoids"        
+        ;
+        max-width: 900px;
     }
 
     @media (min-width: 1500px) {
@@ -24,6 +36,7 @@ export const Container = styled.div`
 `
 
 export const Title = styled.div`
+    grid-area: title;
     font-family: ${FONT_FAMILY.SECONDARY};
     font-size: 2.5rem;
     font-weight: ${FONT_WEIGHT.MEDIUM};
@@ -32,25 +45,27 @@ export const Title = styled.div`
     
 
     @media (min-width: 700px) {
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
 
 `
 
 export const Text = styled.div`
+    grid-area: text;
     padding: 1em 0 4em;
     width: 90%;
     line-height: 2;
     text-align: center;
+    max-width: 70%;
 
     @media (min-width: 700px) {
-        font-size: 1.5rem;
+        text-align: left;
     }
 
 `
 
 export const ButtonGroup = styled.div`
-    
+    grid-area: buttons;
     display: flex;
     justify-content: space-evenly;    
     text-transform: uppercase;
@@ -62,10 +77,29 @@ export const ButtonGroup = styled.div`
     border-bottom: 1px solid ${COLOR_SCHEME.SECONDARY};
     /* margin-right: 5em;
     margin-left: 5em; */
+    @media (min-width: 700px) {
+        border-bottom: unset;
+        flex-direction: column;
+        
+    }
+`
 
-    &:hover {        
-        
-        
+export const ButtonPrefix = styled.span`
+    display: none;
+
+    @media (min-width: 700px) {
+        display: inline-block;
+        margin-right: 2em;
+        color: ${COLOR_SCHEME.LIGHT_GRAY};
+    }
+`
+
+export const ButtonSuffix = styled.span`
+    display: none;
+
+    @media (min-width: 700px) {
+        display: inline-block;
+
     }
 `
 
@@ -89,44 +123,37 @@ export const Button = styled.div`
     color: ${props => props.surface && props.category === 'surface' ? 
         `${COLOR_SCHEME.WHITE}`  : null  } ;  
 
-    /* background: ${props => props.color === 'COLOR_SCHEME.MERCURY_PLANET' ? 'lime' : 'pink'}; */
+
 
     &:hover {        
         color: ${COLOR_SCHEME.WHITE}; 
         background: ${COLOR_SCHEME.SECONDARY};
-        /* border-bottom: 3px solid ${props => 
-        props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
-        props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
-        props.planet === 'Earth' ? COLOR_SCHEME.EARTH_PLANET :
-        props.planet === 'Mars' ? COLOR_SCHEME.MARS_PLANET :
-        props.planet === 'Jupiter' ? COLOR_SCHEME.JUPITER_PLANET :
-        props.planet === 'Saturn' ? COLOR_SCHEME.SATURN_PLANET :
-        props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
-            COLOR_SCHEME.NEPTUNE_PLANET}; */
-
-        /* box-shadow: inset 0px -3px 0 ${props => 
-            props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
-            props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
-            props.planet === 'Earth' ? COLOR_SCHEME.EARTH_PLANET :
-            props.planet === 'Mars' ? COLOR_SCHEME.MARS_PLANET :
-            props.planet === 'Jupiter' ? COLOR_SCHEME.JUPITER_PLANET :
-            props.planet === 'Saturn' ? COLOR_SCHEME.SATURN_PLANET :
-            props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
-                COLOR_SCHEME.NEPTUNE_PLANET};             */
     }
 
     @media (min-width: 700px) {
-        border: 1px solid white;
+        box-shadow: unset;
+        border: 1px solid ${COLOR_SCHEME.SECONDARY};
+        padding: 2em 3em;
+        margin-bottom: 2em;
+        letter-spacing: 1.5px;
 
+        background: ${props => props.overview && props.category === 'overview' ? 
+            `${props.color}` : null } ;  
+        background: ${props => props.internal && props.category === 'internal' ? 
+            `${props.color}` : null } ;  
+        background: ${props => props.surface && props.category === 'surface' ? 
+            `${props.color}` : null  } ;  
     }
 `
 export const ImageContainer = styled.div`
+    grid-area: image;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* border: 1px solid magenta; */
+    border: 1px solid magenta;
     min-height: 300px;
+    /* width: 70%; */
     /* width: auto;
     margin: auto 0; */
     /* display: flex;
@@ -134,20 +161,35 @@ export const ImageContainer = styled.div`
     justify-content: center; */
     position: relative;
   
+    @media (min-width: 400px) {
+        min-height: 425px;
+
+    }
 `
 
 
 export const Image = styled.img`
     
-    display: block;
+    /* display: block; */
     /* border: 1px red solid; */
     margin: auto; 
     /* margin: 8em 0; */
     /* margin: calc(14em * (1 - ${props => props.ratio})) 0; */
-    width: calc(70% * ${props => props.ratio});
+    
+    /* width: 100%; */
     height: auto;
+    width: calc(70% * ${props => props.ratio});
+    /* box-sizing: unset; */
+    /* width: 70% ; */
+    /* height: calc(40% * ${props => props.ratio});
+    width: auto; */
     
     z-index: -2;
+
+    /* @media (min-width: 400px) {
+        width: calc(80% * ${props => props.ratio});
+
+    } */
 `
 
 export const ImageAccent = styled.img`
@@ -171,6 +213,7 @@ export const Label = styled.span`
 `
 
 export const LinkContainer = styled.div`
+    grid-area: links;
     display: flex;    
     margin: 0 0 3em;
 `
@@ -188,15 +231,40 @@ export const LinkIcon = styled.img`
     height: auto;
     margin-left: .5em;
 `
+export const FactoidContainer = styled.div`
+    grid-area: factoids;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid limegreen;
+
+    @media (min-width: 700px) {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+    }
+`
+
 
 export const Factoid = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    
     border: 1px solid ${COLOR_SCHEME.SECONDARY};
     padding: 1em 2em;
     box-sizing: border-box;
-    margin-bottom: 1em;
+    margin: 0 auto 1em;
+    
+    @media (min-width: 700px) {
+        flex-direction: column;
+        padding: 1.5em 1em;
+        margin: 0;
+        width: 24%;
+    }
 `
 
 export const FactoidLabel = styled.div`
@@ -204,8 +272,13 @@ export const FactoidLabel = styled.div`
     font-weight: ${FONT_WEIGHT.BOLD};
     color: ${COLOR_SCHEME.TERTIARY};
     text-transform: uppercase;
-    letter-spacing: 1.7;
+    letter-spacing: 1.5px;
     align-self: center;
+
+    @media (min-width: 700px) {
+        align-self: flex-start;
+        margin-bottom: 1em;
+    }
 `
 
 export const FactoidFact = styled.div`
@@ -213,4 +286,9 @@ export const FactoidFact = styled.div`
     font-size: 1.25rem;
     font-weight: ${FONT_WEIGHT.MEDIUM};
     text-transform: uppercase;
+
+    @media (min-width: 700px) {
+        font-size: 1.5rem;
+        letter-spacing: -.3px;
+    }
 `

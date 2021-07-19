@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR_SCHEME, FONT_WEIGHT } from '../../../constants/constants'
+import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT } from '../../../constants/constants'
 
 
 export const Container = styled.div`
@@ -18,18 +18,19 @@ export const Container = styled.div`
     }
 
     @media (min-width: 700px) {
-        padding: 2em 6em;        
+        /* padding: 0 0 2em;  */
     }
 
     @media (min-width: 1500px) {
-        padding: 2em 10%;        
+        /* padding: 2em 10%;         */
     }
 `
 
 export const List = styled.div`
-
+    font-family: ${FONT_FAMILY.PRIMARY};
     display: flex;
     justify-content: flex-end;
+    border: 1px magenta solid;
 
     /* font-size: 800; */
 /* 
@@ -42,7 +43,9 @@ export const List = styled.div`
     } */
 `
 export const ListItem = styled.div`
-    padding: .5em;
+    
+    padding: 1em;
+    cursor: pointer;
     /* font-size: 800; */
 
     display: none;
