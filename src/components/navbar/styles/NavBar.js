@@ -18,7 +18,7 @@ export const Container = styled.div`
     }
 
     @media (min-width: 700px) {
-        /* padding: 0 0 2em;  */
+        
     }
 
     @media (min-width: 1500px) {
@@ -33,12 +33,15 @@ export const List = styled.div`
     border: 1px magenta solid;
 
     /* font-size: 800; */
-/* 
+
     @media (min-width: 700px) {
-        font-size: 1.5rem;
+        font-weight: ${FONT_WEIGHT.BOLD};
+        color: ${COLOR_SCHEME.LIGHT_GRAY};
+        letter-spacing: 1px;
+        
     }
 
-    &:hover {        
+    /* &:hover {        
         box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};    
     } */
 `
@@ -51,15 +54,21 @@ export const ListItem = styled.div`
     display: none;
     @media (min-width: 700px) {
         display: block;
+        padding: 1em 1.5em;
     }
 
-
-/* 
-
-
     &:hover {        
-        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};    
-    } */
+        background-color: ${COLOR_SCHEME.SECONDARY};
+        border-top: 3px solid ${props => 
+        props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
+        props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
+        props.planet === 'Earth' ? COLOR_SCHEME.EARTH_PLANET :
+        props.planet === 'Mars' ? COLOR_SCHEME.MARS_PLANET :
+        props.planet === 'Jupiter' ? COLOR_SCHEME.JUPITER_PLANET :
+        props.planet === 'Saturn' ? COLOR_SCHEME.SATURN_PLANET :
+        props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
+            COLOR_SCHEME.NEPTUNE_PLANET};
+    } 
 `
 
 export const MenuLogo = styled.img`

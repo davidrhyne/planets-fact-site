@@ -19,7 +19,7 @@ export const Container = styled.div`
 
     @media (min-width: 700px) {
         flex-direction: column;
-        padding: 3em;
+        padding: 2em;
     }
 
     @media (min-width: 1500px) {
@@ -32,8 +32,9 @@ export const Title = styled.div`
     font-size: 1.75rem;
     border: 1px solid dodgerblue;
 
-    @media (min-width: 750px) {
+    @media (min-width: 700px) {
         /* font-size: 1.5rem; */
+        margin: .5em 0 1em;
     }
 
 `

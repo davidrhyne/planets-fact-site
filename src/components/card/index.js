@@ -81,6 +81,7 @@ Card.Button = function CardButton({ children, ...restProps}) {
 
     const category = useCategory()
     console.log('category = ', category)
+    console.log('sliced category = ', category.slice(0,8).toLowerCase())
 
     const updateCategory = useCategoryUpdate();
     function handleButtonClick(value) {
@@ -111,7 +112,7 @@ Card.Button = function CardButton({ children, ...restProps}) {
     }
 
     return (
-        <Button {...restProps} category={category.toLowerCase()}  planet={currentPlanet} color={getPlanetAccentColor()} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
+        <Button {...restProps} category={category.slice(0,8).toLowerCase()}  planet={currentPlanet} color={getPlanetAccentColor()} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
         // <Button {...restProps} >{children}</Button>
     )
 }
