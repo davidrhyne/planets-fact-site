@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, List, ListItem, MenuLogo, DropDownMenu, DropDownMenuItem, DropDownMenuItemPlanet, DropDownMenuText, DropDownMenuItemChevron } from './styles/NavBar'
 import { usePlanetData } from '../../context/PlanetContext'
 import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
-
+import { COLOR_SCHEME } from '../../constants/constants'
 
 export default function NavBar({children, ...restProps}) {
 
@@ -14,8 +14,12 @@ export default function NavBar({children, ...restProps}) {
 }
 
 NavBar.ListItem = function NavBarListItem({ children, ...restProps}) {
-    const planetData = usePlanetData();
-    planetData.forEach(planet => console.log('planets = ', planet.name))
+    // const planetData = usePlanetData();
+    // planetData.forEach(planet => console.log('planets = ', planet.name))
+
+    // const currentPlanet = useCurrentPlanet();
+
+    // console.log('** navbar list item current planet = ', currentPlanet)
     return (
         <ListItem {...restProps}>{children}</ListItem>
     )
@@ -31,8 +35,8 @@ NavBar.List = function NavBarList({ children, ...restProps}) {
     const planetData = usePlanetData();
     //planetData.forEach(planet => console.log('planets = ', planet.name))
 
-    // const currentPlanet = useCurrentPlanet();
-    // console.log('current planet = ', currentPlanet)
+    const currentPlanet = useCurrentPlanet();
+    // console.log('**** List current planet = ', currentPlanet)
 
     const updateCurrentPlanet = useCurrentPlanetUpdate()
 
@@ -42,12 +46,23 @@ NavBar.List = function NavBarList({ children, ...restProps}) {
         //console.log('updated planet = ', currentPlanet)
     }
     
+    function getPlanetAccentColor(planet) {
+        return planet === 'Mercury' ? COLOR_SCHEME.MERCURY : 
+        planet === 'Venus' ? COLOR_SCHEME.VENUS :
+        planet === 'Earth' ? COLOR_SCHEME.EARTH :
+        planet === 'Mars' ? COLOR_SCHEME.MARS :
+        planet === 'Jupiter' ? COLOR_SCHEME.JUPITER :
+        planet === 'Saturn' ? COLOR_SCHEME.SATURN :
+        planet === 'Uranus' ? COLOR_SCHEME.URANUS :
+            COLOR_SCHEME.NEPTUNE 
+    }
+
     return (
         <List {...restProps}>
             {
                 planetData.map(planet => {
                     return (
-                        <ListItem key={planet.name} onClick={ () => handlePlanetClick(planet.name)}>
+                        <ListItem color={getPlanetAccentColor(planet.name)} planet={planet.name} key={planet.name} onClick={ () => handlePlanetClick(planet.name)}>
                             {planet.name.toUpperCase()}
                         </ListItem>
                     )

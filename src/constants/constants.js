@@ -56,3 +56,11 @@ export const PLANET_RATIO = {
     URANUS:'.688',
     NEPTUNE: '.675'
 }
+
+export const BREAKPOINT = {
+    SMALL_TABLET: '400px',
+    TABLET: '700px',
+    DESKTOP: '1000px',
+    MAX: '1500px'
+
+}

@@ -15,7 +15,7 @@ export function useCategoryUpdate() {
 
 export function CategoryProvider({children}) {
 
-    const [category, setCategory] = useState('overview')
+    const [category, setCategory] = useState('Overview')
 
     function updateCategory(newCategory) {
         setCategory(newCategory)

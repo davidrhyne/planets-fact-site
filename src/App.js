@@ -29,8 +29,10 @@ function App() {
       font-weight: ${FONT_WEIGHT.REGULAR};
       box-sizing: border-box;
       margin: 0 auto;
+      padding: 0;
       background: ${COLOR_SCHEME.PRIMARY};
       color: ${COLOR_SCHEME.WHITE};
+      max-width: 1600px;
       background-image: url('./images/background-stars.svg');
   }
 `

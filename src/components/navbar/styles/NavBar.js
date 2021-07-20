@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT } from '../../../constants/constants'
+import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT, BREAKPOINT } from '../../../constants/constants'
 
 
 export const Container = styled.div`
@@ -17,12 +17,12 @@ export const Container = styled.div`
         text-decoration: none;
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         
     }
 
-    @media (min-width: 1500px) {
-        /* padding: 2em 10%;         */
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        
     }
 `
 
@@ -34,12 +34,13 @@ export const List = styled.div`
 
     /* font-size: 800; */
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         font-weight: ${FONT_WEIGHT.BOLD};
         color: ${COLOR_SCHEME.LIGHT_GRAY};
         letter-spacing: 1px;
         
     }
+
 
     /* &:hover {        
         box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};    
@@ -52,14 +53,11 @@ export const ListItem = styled.div`
     /* font-size: 800; */
 
     display: none;
-    @media (min-width: 700px) {
-        display: block;
-        padding: 1em 1.5em;
-    }
 
     &:hover {        
-        background-color: ${COLOR_SCHEME.SECONDARY};
-        border-top: 3px solid ${props => 
+        /* background-color: ${COLOR_SCHEME.SECONDARY}; */
+        /* border-top-style: inset;
+        border-top: 5px solid ${props => 
         props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
         props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
         props.planet === 'Earth' ? COLOR_SCHEME.EARTH_PLANET :
@@ -67,8 +65,25 @@ export const ListItem = styled.div`
         props.planet === 'Jupiter' ? COLOR_SCHEME.JUPITER_PLANET :
         props.planet === 'Saturn' ? COLOR_SCHEME.SATURN_PLANET :
         props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
-            COLOR_SCHEME.NEPTUNE_PLANET};
+            COLOR_SCHEME.NEPTUNE_PLANET}; */
+
+        /* box-shadow: inset 0px -3px 0 blue; */
+        box-shadow: inset 0 5px 0px 0px ${props => props.color};
+        /* box-shadow: ${props => props.overview && props.category === 'overview' ? 
+        `inset 0px -3px 0 blue` : null } ;   */
+
+        /* box-shadow: ${props => props.overview && props.category === 'overview' ? 
+        `inset 0px -3px 0 ${props.color}` : null } ;   */
     } 
+
+    @media (min-width: ${BREAKPOINT.TABLET}) {
+        display: block;
+        padding: 1em 1.5em;
+    }
+
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        padding: 3em 1.5em;
+    }
 `
 
 export const MenuLogo = styled.img`
@@ -78,7 +93,7 @@ export const MenuLogo = styled.img`
     width: 100%;
     height: auto;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         display: none;
     }
 `

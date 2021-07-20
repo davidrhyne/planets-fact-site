@@ -83,9 +83,12 @@ Card.Button = function CardButton({ children, ...restProps}) {
     console.log('category = ', category)
     console.log('sliced category = ', category.slice(0,8).toLowerCase())
 
+    
+
     const updateCategory = useCategoryUpdate();
     function handleButtonClick(value) {
-
+        console.log('button update value = ', value)
+        console.log('button update value sliced = ', value.slice(2))
         // if the prefix is clicked instead of anywhere else on the button
         // then adjust the value to the expected category value
         if (value === '01') {
@@ -112,7 +115,7 @@ Card.Button = function CardButton({ children, ...restProps}) {
     }
 
     return (
-        <Button {...restProps} category={category.slice(0,8).toLowerCase()}  planet={currentPlanet} color={getPlanetAccentColor()} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
+        <Button {...restProps} category={category.slice(0,7).toLowerCase()}  planet={currentPlanet} color={getPlanetAccentColor()} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
         // <Button {...restProps} >{children}</Button>
     )
 }
@@ -138,6 +141,7 @@ Card.Image = function CardImage({ ...restProps}) {
     const pictureSuffix = category.slice(0,8) !== 'Internal' ? "" : "-internal"
     const imageSource = `images/planet-${currentPlanet.toLowerCase()}${pictureSuffix}.svg`
     const geologySource = `images/geology-${currentPlanet.toLowerCase()}.png`
+    const altDescription = category.slice(0,8) === 'Internal' ? `stylistic rendering of the internal layers of planet ${currentPlanet}` : `stylistic rendering of the planet ${currentPlanet}` 
 
     
     const ratio = currentPlanet === 'Mercury' ? PLANET_RATIO.MERCURY : 
@@ -152,8 +156,8 @@ Card.Image = function CardImage({ ...restProps}) {
 
     return (
         <>
-            <Image ratio={ratio} src={imageSource}{...restProps} />
-            { category.slice(0,7) === 'Surface' ? <ImageAccent src={geologySource}{...restProps} /> : null  }
+            <Image ratio={ratio} src={imageSource} alt={altDescription} {...restProps} />
+            { category.slice(0,7) === 'Surface' ? <ImageAccent src={geologySource} alt={`geology of the planet ${currentPlanet}`} {...restProps} /> : null  }
         </>
     )
 }

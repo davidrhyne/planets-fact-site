@@ -31,17 +31,6 @@ export function CardContainer( {children, ...restProps}) {
 
     }
 
-    // reset the view to overview when a new planet is selected
-    // useEffect(()=> {
-    //     setCategory( 'Overview' )
-    // }, [currentPlanet])
-
-    
-    // function handleClick(value) {
-    //     //console.log("category button clicked = ", value)
-    //     setCategory( value )
-    // }
-
     return (        
         <Card>
             <Card.ButtonGroup>
@@ -52,14 +41,14 @@ export function CardContainer( {children, ...restProps}) {
                 {/* <Card.Void>blank</Card.Void> */}
                 <Card.Button internal >
                     <Card.ButtonPrefix>02</Card.ButtonPrefix>
-                    Internal Structure
-                    
+                    Internal
+                    <Card.ButtonSuffix>&nbsp;Structure</Card.ButtonSuffix>
                 </Card.Button>
                 {/* <Card.Void>blank</Card.Void> */}
                 <Card.Button surface >
                     <Card.ButtonPrefix>03</Card.ButtonPrefix>
-                    Surface Geology
-                
+                    Surface
+                    <Card.ButtonSuffix>&nbsp;Geology</Card.ButtonSuffix>
                 </Card.Button>
             </Card.ButtonGroup>
             {/* <Card.Image /> */}

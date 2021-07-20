@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT } from '../../../constants/constants'
+import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT, BREAKPOINT } from '../../../constants/constants'
 
 
 export const Container = styled.div`
@@ -14,7 +14,7 @@ export const Container = styled.div`
     margin: 0 auto;
     /* gap: 1em; */
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         padding: 1em 4em 4em;
         display: grid;
         margin: 0 auto;
@@ -28,15 +28,15 @@ export const Container = styled.div`
             "links buttons"
             "factoids factoids"        
         ;
-        /* max-width: 900px; */
+        /* max-width: ${BREAKPOINT.DESKTOP}; */
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         /* padding: 1em 4em 4em;
         display: grid;
         margin: 0 auto;
         gap: 0 1em; */
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(2, 1fr) minmax(400px,1fr); 
         grid-template-rows: 1fr;
         grid-template-areas: 
             "image image title"
@@ -59,12 +59,12 @@ export const Title = styled.div`
     margin: .2em ;
     
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         font-size: 3rem;
         margin-left: 0;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: 5rem;
         margin-bottom: .1em;
         
@@ -78,14 +78,18 @@ export const Text = styled.div`
     width: 90%;
     line-height: 2;
     text-align: center;
-    max-width: 70%;
+    
     border: 1px solid dodgerblue;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
+        max-width: 70%;
+    }
+
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         text-align: left;
         max-width: unset;
     }
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .875rem;
         line-height: 1.6;
         padding: 1em 0 2em;
@@ -107,13 +111,13 @@ export const ButtonGroup = styled.div`
     border-bottom: 1px solid ${COLOR_SCHEME.SECONDARY};
     /* margin-right: 5em;
     margin-left: 5em; */
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         border-bottom: unset;
         flex-direction: column;
         
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         margin-bottom: 4em;
         font-size: .875rem;
     }
@@ -126,7 +130,7 @@ export const ButtonGroup = styled.div`
 export const ButtonPrefix = styled.span`
     display: none;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         display: inline-block;
         margin-right: 2em;
         color: ${COLOR_SCHEME.LIGHT_GRAY};
@@ -136,7 +140,7 @@ export const ButtonPrefix = styled.span`
 export const ButtonSuffix = styled.span`
     display: none;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         display: inline-block;
 
     }
@@ -148,18 +152,18 @@ export const Button = styled.div`
     margin: 0 2em;
     cursor: pointer;
 
-    box-shadow: ${props => props.overview && props.category === 'overview' ? 
+    box-shadow: ${props => props.overview && props.category === 'overvie' ? 
         `inset 0px -3px 0 ${props.color}` : null } ;  
-    box-shadow: ${props => props.internal && props.category === 'internal' ? 
+    box-shadow: ${props => props.internal && props.category === 'interna' ? 
         `inset 0px -3px 0 ${props.color}` : null } ;  
-    box-shadow: ${props => props.surface && props.category === 'surface ' ? 
+    box-shadow: ${props => props.surface && props.category === 'surface' ? 
         `inset 0px -3px 0 ${props.color}` : null  } ;  
 
-    color: ${props => props.overview && props.category === 'overview' ? 
+    color: ${props => props.overview && props.category === 'overvie' ? 
         `${COLOR_SCHEME.WHITE}` : null } ;  
-    color: ${props => props.internal && props.category === 'internal' ? 
+    color: ${props => props.internal && props.category === 'interna' ? 
         `${COLOR_SCHEME.WHITE}`  : null } ;  
-    color: ${props => props.surface && props.category === 'surface ' ? 
+    color: ${props => props.surface && props.category === 'surface' ? 
         `${COLOR_SCHEME.WHITE}`  : null  } ;  
 
 
@@ -169,24 +173,29 @@ export const Button = styled.div`
         background: ${COLOR_SCHEME.SECONDARY};
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         box-shadow: unset;
         border: 1px solid ${COLOR_SCHEME.SECONDARY};
         padding: 2em 3em;
         margin-bottom: 2em;
         letter-spacing: 1.5px;
+        min-width: 70%;
 
-        background: ${props => props.overview && props.category === 'overview' ? 
+        background: ${props => props.overview && props.category === 'overvie' ? 
             `${props.color}` : null } ;  
-        background: ${props => props.internal && props.category === 'internal' ? 
+        background: ${props => props.internal && props.category === 'interna' ? 
             `${props.color}` : null } ;  
-        background: ${props => props.surface && props.category === 'surface ' ? 
+        background: ${props => props.surface && props.category === 'surface' ? 
             `${props.color}` : null  } ;  
 
         margin-right: 0;
-        margin-left: 0;
+        margin-left: auto;
     }
     
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        margin-left: 0;
+
+    }
 `
 export const ImageContainer = styled.div`
     grid-area: image;
@@ -196,6 +205,7 @@ export const ImageContainer = styled.div`
     flex-direction: column;
     border: 1px solid magenta;
     min-height: 300px;
+    width: 90%;
     /* width: 70%; */
     /* width: auto;
     margin: auto 0; */
@@ -204,15 +214,16 @@ export const ImageContainer = styled.div`
     justify-content: center; */
     position: relative;
   
-    @media (min-width: 400px) {
+    @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         min-height: 425px;
 
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         min-height: unset;
 
     }
+
 `
 
 
@@ -227,6 +238,7 @@ export const Image = styled.img`
     /* width: 100%; */
     height: auto;
     width: calc(70% * ${props => props.ratio});
+    
     /* box-sizing: unset; */
     /* width: 70% ; */
     /* height: calc(40% * ${props => props.ratio});
@@ -234,28 +246,31 @@ export const Image = styled.img`
     
     z-index: -2;
 
-    @media (min-width: 400px) {
+    @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         width: calc(60% * ${props => props.ratio});
 
     }
 
-    @media (min-width: 900px) {
-        width: calc(100% * ${props => props.ratio});
-
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        width: calc(90% * ${props => props.ratio});  
     }
+    
+    /* @media (min-width: 1200px) {
+        width: calc(80% * ${props => props.ratio});  
+    } */
 `
 
 export const ImageAccent = styled.img`
-    max-width: 24%;
+    width: 24%;
     height: auto;
     position: absolute;
     z-index: -1;
     top: 53%;
+    border: 1px limegreen solid;
 
-    /* @media (min-width: 400px) {
-        width: calc(60% * ${props => props.ratio});
-
-    } */
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        top: 70%;
+    }
 `
 
 export const Void = styled.div`
@@ -269,7 +284,7 @@ export const Label = styled.span`
     font-weight: ${FONT_WEIGHT.REGULAR};
     color: ${COLOR_SCHEME.TERTIARY};
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .875rem;
     }
 `
@@ -288,7 +303,7 @@ export const Link = styled.a`
     color: ${COLOR_SCHEME.TERTIARY};
     padding: 0 .3em;
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .875rem;
     }
 `
@@ -298,7 +313,7 @@ export const LinkIcon = styled.img`
     height: auto;
     margin-left: .5em;
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         width: 14px;
     }
 `
@@ -312,7 +327,7 @@ export const FactoidContainer = styled.div`
     align-content: center;
     border: 1px solid limegreen;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
@@ -330,17 +345,20 @@ export const Factoid = styled.div`
     box-sizing: border-box;
     margin: 0 auto 1em;
     
-    @media (min-width: 450px) {
+    @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         width: 70%;
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         flex-direction: column;
         padding: 1.5em 1em;
         margin: 0;
         width: 24%;
     }
-
+    
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        width: 23%;
+    }
 
 `
 
@@ -352,12 +370,12 @@ export const FactoidLabel = styled.div`
     letter-spacing: 1.5px;
     align-self: center;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         align-self: flex-start;
         margin-bottom: 1em;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .6875rem;
     }
 `
@@ -368,12 +386,12 @@ export const FactoidFact = styled.div`
     font-weight: ${FONT_WEIGHT.MEDIUM};
     text-transform: uppercase;
 
-    @media (min-width: 700px) {
+    @media (min-width: ${BREAKPOINT.TABLET}) {
         font-size: 1.5rem;
         letter-spacing: -.3px;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: 2.5rem;
     }
 `
