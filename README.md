@@ -28,67 +28,32 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![mobile](https://user-images.githubusercontent.com/63062052/126543765-9ca47c74-a0c9-4a95-ba6c-7d8a341fab73.png)
+![tablet](https://user-images.githubusercontent.com/63062052/126543928-2e18a904-8ecb-4ef7-aafd-f7ff781a2817.png)
+![desktop](https://user-images.githubusercontent.com/63062052/126544073-0c2066e9-067b-48d3-af21-509d7a521ea9.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [@github](https://github.com/davidrhyne/planets-fact-site)
+- Live Site URL: [@github pages](https://davidrhyne.github.io/planets-fact-site/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Mobile-first workflow
+- CSS Grid
+- CSS Flexbox
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+This was a great project for React and styled-components.  I leverage many of the lessons learned from the 'REST Countries API' project, but I feel more confidence in the used of React hooks and styled-components' ThemeProvider.  I am really enjoying how React hooks can be used to manage state with useState and useContext instead of 'prop drilling'.  Likewise, I feel the file structure allows for more reusable and manageable code.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I am going to continue creating React applications to gain more confident and speed.
 
 ## Author
 
