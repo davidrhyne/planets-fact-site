@@ -1,28 +1,12 @@
 import styled from 'styled-components';
 import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT, BREAKPOINT } from '../../../constants/constants'
 
-
 export const Container = styled.div`
-    /* background: ${props => props.theme.element}; */
     color: white;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2em 1em;
-    margin: 0 auto; */
     z-index: 9;
- 
 
     a {
         text-decoration: none;
-    }
-
-    @media (min-width: ${BREAKPOINT.TABLET}) {
-        
-    }
-
-    @media (min-width: ${BREAKPOINT.DESKTOP}) {
-        
     }
 `
 
@@ -30,50 +14,20 @@ export const List = styled.div`
     font-family: ${FONT_FAMILY.PRIMARY};
     display: flex;
     justify-content: flex-end;
-    /* border: 1px magenta solid; */
-
-    /* font-size: 800; */
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         font-weight: ${FONT_WEIGHT.BOLD};
         color: ${COLOR_SCHEME.LIGHT_GRAY};
-        letter-spacing: 1px;
-        
+        letter-spacing: 1px;        
     }
-
-
-    /* &:hover {        
-        box-shadow: 0px 2px 0px 0px ${props => props.theme.hover};    
-    } */
 `
-export const ListItem = styled.div`
-    
+export const ListItem = styled.div`    
     padding: 1em;
     cursor: pointer;
-    /* font-size: 800; */
-
     display: none;
 
-    &:hover {        
-        /* background-color: ${COLOR_SCHEME.SECONDARY}; */
-        /* border-top-style: inset;
-        border-top: 5px solid ${props => 
-        props.planet === 'Mercury' ? COLOR_SCHEME.MERCURY_PLANET : 
-        props.planet === 'Venus' ? COLOR_SCHEME.VENUS_PLANET :
-        props.planet === 'Earth' ? COLOR_SCHEME.EARTH_PLANET :
-        props.planet === 'Mars' ? COLOR_SCHEME.MARS_PLANET :
-        props.planet === 'Jupiter' ? COLOR_SCHEME.JUPITER_PLANET :
-        props.planet === 'Saturn' ? COLOR_SCHEME.SATURN_PLANET :
-        props.planet === 'Uranus' ? COLOR_SCHEME.URANUS_PLANET :
-            COLOR_SCHEME.NEPTUNE_PLANET}; */
-
-        /* box-shadow: inset 0px -3px 0 blue; */
+    &:hover {       
         box-shadow: inset 0 5px 0px 0px ${props => props.color};
-        /* box-shadow: ${props => props.overview && props.category === 'overview' ? 
-        `inset 0px -3px 0 blue` : null } ;   */
-
-        /* box-shadow: ${props => props.overview && props.category === 'overview' ? 
-        `inset 0px -3px 0 ${props.color}` : null } ;   */
     } 
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
@@ -102,7 +56,6 @@ export const DropDownMenu = styled.div`
     display: ${props => props.isMenuOpen ? 'block' : 'none'};
     position: absolute;
     width: 90%;
-    /* border: 1px magenta solid; */
     left: 5%;
     top: 80px;
 `
@@ -114,7 +67,6 @@ export const DropDownMenuItem = styled.a`
     background: ${COLOR_SCHEME.PRIMARY};
     padding: 2em;
     border-bottom: 1px solid ${COLOR_SCHEME.SECONDARY};
-    /* border: 1px magenta solid; */
     cursor: pointer;
 
     &:hover {        
@@ -136,7 +88,6 @@ export const DropDownMenuText = styled.div`
     font-size: .9375rem;
     font-weight: ${FONT_WEIGHT.BOLD};
     letter-spacing: 1.4px;
-    /* border: 1px solid pink; */
     width: 90%;
     align-items: center;
     margin-top: .3em;
@@ -164,4 +115,3 @@ export const DropDownMenuItemChevron = styled.img`
     width: auto;
     height: 10px;
 `
-

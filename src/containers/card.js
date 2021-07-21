@@ -5,24 +5,16 @@ import { usePlanetData, useIsLoading } from '../context/PlanetContext'
 import { useCategory } from '../context/CategoryContext' 
 
 export function CardContainer( {children, ...restProps}) {
-    //console.log('category = ', category)
     const isLoading = useIsLoading();
-    //console.log('card planet data isLoading = ', isLoading)
     const currentPlanet  = useCurrentPlanet();
     const planetData  = usePlanetData();
     let currentPlanetData = [];
-    //const [ category, setCategory ] = useState('Overview')
-    //console.log('card data current category = ', category)
     const category = useCategory();
-    // let contentBox = {}
 
     if (isLoading) {
         // console.log('currenting loading data')
-        // console.log('card planet data = ', planetData)
     } else {
         currentPlanetData = planetData.filter(planet => planet.name === currentPlanet)[0]
-        // console.log('data loaded currentPlanetData = ', currentPlanetData)
-        // console.log('data loaded currentPlanetData = ', currentPlanetData.name)
     }
     
     return (        

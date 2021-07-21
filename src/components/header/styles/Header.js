@@ -35,12 +35,10 @@ export const Title = styled.div`
     font-size: 1.75rem;
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
-        /* font-size: 1.5rem; */
         margin: .5em 0 1em;
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
-        /* padding: .5em 0 0; */
         margin: 0;
     }
 `

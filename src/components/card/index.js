@@ -95,8 +95,7 @@ Card.ImageContainer = function CardImageContainer({ children, ...restProps}) {
     )
 }
 
-Card.Image = function CardImage({ ...restProps}) {
-    
+Card.Image = function CardImage({ ...restProps}) {    
     const currentPlanet = useCurrentPlanet()
     const category = useCategory()
 
@@ -115,8 +114,7 @@ Card.Image = function CardImage({ ...restProps}) {
         currentPlanet === 'Saturn' ? PLANET_RATIO.SATURN :
         currentPlanet === 'Uranus' ? PLANET_RATIO.URANUS :
             PLANET_RATIO.NEPTUNE
-    // console.log('ratio = ', ratio)
-
+ 
     return (
         <>
             <Image ratio={ratio} src={imageSource} alt={altDescription} {...restProps} />
@@ -133,7 +131,6 @@ Card.ImageAccent = function CardImageAccent({ ...restProps}) {
         <ImageAccent {...restProps} />
     )
 }
-
 
 Card.LinkContainer = function CardLinkContainer({ children, ...restProps}) {
     return (

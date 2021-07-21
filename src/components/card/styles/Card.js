@@ -27,10 +27,6 @@ export const Container = styled.div`
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
-        /* padding: 1em 4em 4em;
-        display: grid;
-        margin: 0 auto;
-        gap: 0 1em; */
         grid-template-columns: repeat(2, 1fr) 350px; 
         grid-template-rows: 1fr;
         grid-template-areas: 
@@ -52,7 +48,6 @@ export const Title = styled.div`
     font-weight: ${FONT_WEIGHT.MEDIUM};
     text-transform: uppercase;
     margin: .2em ;
-    /* border: 1px solid red;     */
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         font-size: 3rem;
@@ -73,7 +68,6 @@ export const Text = styled.div`
     width: 90%;
     line-height: 2;
     text-align: center;    
-    /* border: 1px solid dodgerblue; */
 
     @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         max-width: 70%;
@@ -94,7 +88,6 @@ export const Text = styled.div`
 `
 
 export const ButtonGroup = styled.div`
-    /* border: 1px solid rebeccapurple; */
     grid-area: buttons;
     display: flex;
     justify-content: space-evenly;    
@@ -105,8 +98,6 @@ export const ButtonGroup = styled.div`
     letter-spacing: 1.9px;
     font-weight: ${FONT_WEIGHT.BOLD};
     border-bottom: 1px solid ${COLOR_SCHEME.SECONDARY};
-    /* margin-right: 5em;
-    margin-left: 5em; */
     @media (min-width: ${BREAKPOINT.TABLET}) {
         border-bottom: unset;
         flex-direction: column;        
@@ -129,7 +120,6 @@ export const ButtonPrefix = styled.span`
 `
 
 export const Button = styled.div`
-    /* border: 1px magenta solid; */
     padding: 2em .5em;
     margin: 0 2em;
     cursor: pointer;
@@ -147,8 +137,6 @@ export const Button = styled.div`
         `${COLOR_SCHEME.WHITE}`  : null } ;  
     color: ${props => props.surface && props.category === 'surface' ? 
         `${COLOR_SCHEME.WHITE}`  : null  } ;  
-
-
 
     &:hover {        
         color: ${COLOR_SCHEME.WHITE}; 
@@ -195,7 +183,6 @@ export const ImageContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* border: 1px solid magenta; */
     min-height: 300px;
     width: 90%;
     position: relative;
@@ -231,7 +218,6 @@ export const ImageAccent = styled.img`
     position: absolute;
     z-index: -1;
     top: 53%;
-    /* border: 1px limegreen solid; */
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         top: 70%;
@@ -285,7 +271,6 @@ export const FactoidContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    /* border: 1px solid limegreen; */
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         flex-direction: row;

@@ -18,15 +18,10 @@ NavBar.ListItem = function NavBarListItem({ children, ...restProps}) {
 
 NavBar.List = function NavBarList({ children, ...restProps}) {
     const planetData = usePlanetData();
-    // const currentPlanet = useCurrentPlanet();
-    // console.log('**** List current planet = ', currentPlanet)
-
     const updateCurrentPlanet = useCurrentPlanetUpdate()
 
     function handlePlanetClick(planet) {
-        //console.log(`${planet} was clicked `)
         updateCurrentPlanet(`${planet}`)
-        //console.log('updated planet = ', currentPlanet)
     }
     
     function getPlanetAccentColor(planet) {
