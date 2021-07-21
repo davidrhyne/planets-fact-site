@@ -318,6 +318,10 @@ export const FactoidFact = styled.div`
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        font-size: 2rem;
+    }
+
+    @media (min-width: 1100px) {
         font-size: 2.5rem;
     }
 `
