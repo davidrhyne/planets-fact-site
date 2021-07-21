@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT, BREAKPOINT } from '../../../constants/constants'
 
-
 export const Container = styled.div`
-    /* background: ${props => props.theme.element}; */
-    /* background-color: rebeccapurple; */
     color: white;
     display: flex;
     flex-direction: column;
@@ -12,7 +9,6 @@ export const Container = styled.div`
     align-items: center;
     padding: 0 0 2em; 
     margin: 0 auto;
-    /* gap: 1em; */
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         padding: 1em 4em 4em;
@@ -28,7 +24,6 @@ export const Container = styled.div`
             "links buttons"
             "factoids factoids"        
         ;
-        /* max-width: ${BREAKPOINT.DESKTOP}; */
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
@@ -57,8 +52,7 @@ export const Title = styled.div`
     font-weight: ${FONT_WEIGHT.MEDIUM};
     text-transform: uppercase;
     margin: .2em ;
-    border: 1px solid red;
-    
+    /* border: 1px solid red;     */
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         font-size: 3rem;
@@ -71,7 +65,6 @@ export const Title = styled.div`
         margin-bottom: .1em;
         padding: 1em 0 .1em;
     }
-
 `
 
 export const Text = styled.div`
@@ -79,9 +72,8 @@ export const Text = styled.div`
     padding: 1em 0 4em;
     width: 90%;
     line-height: 2;
-    text-align: center;
-    
-    border: 1px solid dodgerblue;
+    text-align: center;    
+    /* border: 1px solid dodgerblue; */
 
     @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         max-width: 70%;
@@ -99,11 +91,10 @@ export const Text = styled.div`
         padding: 0;
         min-height: 180px;
     }
-
 `
 
 export const ButtonGroup = styled.div`
-    border: 1px solid rebeccapurple;
+    /* border: 1px solid rebeccapurple; */
     grid-area: buttons;
     display: flex;
     justify-content: space-evenly;    
@@ -118,19 +109,14 @@ export const ButtonGroup = styled.div`
     margin-left: 5em; */
     @media (min-width: ${BREAKPOINT.TABLET}) {
         border-bottom: unset;
-        flex-direction: column;
-        
+        flex-direction: column;        
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         margin-bottom: 6em;
         font-size: .75rem;
     }
-
 `
-
-
-
 
 export const ButtonPrefix = styled.span`
     display: none;
@@ -139,15 +125,6 @@ export const ButtonPrefix = styled.span`
         display: inline-block;
         margin-right: 2em;
         color: ${COLOR_SCHEME.LIGHT_GRAY};
-    }
-`
-
-export const ButtonSuffix = styled.span`
-    display: none;
-
-    @media (min-width: ${BREAKPOINT.TABLET}) {
-        display: inline-block;
-
     }
 `
 
@@ -203,68 +180,49 @@ export const Button = styled.div`
         margin-bottom: 1em;
     }
 `
+export const ButtonSuffix = styled.span`
+    display: none;
+
+    @media (min-width: ${BREAKPOINT.TABLET}) {
+        display: inline-block;
+
+    }
+`
+
 export const ImageContainer = styled.div`
     grid-area: image;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid magenta;
+    /* border: 1px solid magenta; */
     min-height: 300px;
     width: 90%;
-    /* width: 70%; */
-    /* width: auto;
-    margin: auto 0; */
-    /* display: flex;
-    align-content: center;
-    justify-content: center; */
     position: relative;
   
     @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         min-height: 425px;
-        
-
+        margin: 0 auto;
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         min-height: unset;
-
     }
-
 `
 
-
 export const Image = styled.img`
-    
-    /* display: block; */
-    /* border: 1px red solid; */
     margin: auto; 
-    /* margin: 8em 0; */
-    /* margin: calc(14em * (1 - ${props => props.ratio})) 0; */
-    
-    /* width: 100%; */
     height: auto;
     width: calc(70% * ${props => props.ratio});
-    
-    /* box-sizing: unset; */
-    /* width: 70% ; */
-    /* height: calc(40% * ${props => props.ratio});
-    width: auto; */
-    
     z-index: -2;
 
     @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         width: calc(60% * ${props => props.ratio});
-
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         width: calc(90% * ${props => props.ratio});  
     }
-    
-    /* @media (min-width: 1200px) {
-        width: calc(80% * ${props => props.ratio});  
-    } */
 `
 
 export const ImageAccent = styled.img`
@@ -273,17 +231,21 @@ export const ImageAccent = styled.img`
     position: absolute;
     z-index: -1;
     top: 53%;
-    border: 1px limegreen solid;
+    /* border: 1px limegreen solid; */
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         top: 70%;
     }
 `
 
-export const Void = styled.div`
-    border: 1px solid red;
-    padding: 0 1em;
-    visibility: hidden;
+export const LinkContainer = styled.div`
+    grid-area: links;
+    display: flex;    
+    margin: 0 0 3em;
+
+    @media (min-width: ${BREAKPOINT.TABLET}) {
+    margin: 0 0 4em;
+    }
 `
 
 export const Label = styled.span`
@@ -294,17 +256,6 @@ export const Label = styled.span`
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .875rem;
     }
-`
-
-export const LinkContainer = styled.div`
-    grid-area: links;
-    display: flex;    
-    margin: 0 0 3em;
-
-    @media (min-width: ${BREAKPOINT.TABLET}) {
-        margin: 0 0 4em;
-    }
-
 `
 
 export const Link = styled.a`    
@@ -330,12 +281,11 @@ export const LinkIcon = styled.img`
 export const FactoidContainer = styled.div`
     grid-area: factoids;
     width: 90%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    border: 1px solid limegreen;
+    /* border: 1px solid limegreen; */
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         flex-direction: row;
@@ -343,9 +293,7 @@ export const FactoidContainer = styled.div`
         justify-content: space-between;
         padding: 0;
     }
-
 `
-
 
 export const Factoid = styled.div`
     display: flex;
@@ -357,7 +305,7 @@ export const Factoid = styled.div`
     margin: 0 auto 1em;
     
     @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
-        width: 70%;
+        width: 85%;
     }
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
@@ -369,9 +317,24 @@ export const Factoid = styled.div`
     
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         width: 23%;
-        padding: 2.5em;
+        padding: 2.5em 2em;
+    }
+`
+
+export const FactoidFact = styled.div`
+    font-family: ${FONT_FAMILY.SECONDARY};
+    font-size: 1.25rem;
+    font-weight: ${FONT_WEIGHT.MEDIUM};
+    text-transform: uppercase;
+
+    @media (min-width: ${BREAKPOINT.TABLET}) {
+        font-size: 1.5rem;
+        letter-spacing: -.3px;
     }
 
+    @media (min-width: ${BREAKPOINT.DESKTOP}) {
+        font-size: 2.5rem;
+    }
 `
 
 export const FactoidLabel = styled.div`
@@ -389,21 +352,5 @@ export const FactoidLabel = styled.div`
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .6875rem;
-    }
-`
-
-export const FactoidFact = styled.div`
-    font-family: ${FONT_FAMILY.SECONDARY};
-    font-size: 1.25rem;
-    font-weight: ${FONT_WEIGHT.MEDIUM};
-    text-transform: uppercase;
-
-    @media (min-width: ${BREAKPOINT.TABLET}) {
-        font-size: 1.5rem;
-        letter-spacing: -.3px;
-    }
-
-    @media (min-width: ${BREAKPOINT.DESKTOP}) {
-        font-size: 2.5rem;
     }
 `

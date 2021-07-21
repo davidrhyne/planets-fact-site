@@ -1,47 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Container, List, ListItem, MenuLogo, DropDownMenu, DropDownMenuItem, DropDownMenuItemPlanet, DropDownMenuText, DropDownMenuItemChevron } from './styles/NavBar'
 import { usePlanetData } from '../../context/PlanetContext'
-import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
+import { useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
 import { COLOR_SCHEME } from '../../constants/constants'
 
-export default function NavBar({children, ...restProps}) {
-
-    
-    
+export default function NavBar({children, ...restProps}) {  
     return (
         <Container {...restProps}>{children}</Container>
     )
 }
 
 NavBar.ListItem = function NavBarListItem({ children, ...restProps}) {
-    // const planetData = usePlanetData();
-    // planetData.forEach(planet => console.log('planets = ', planet.name))
-
-    // const currentPlanet = useCurrentPlanet();
-
-    // console.log('** navbar list item current planet = ', currentPlanet)
     return (
         <ListItem {...restProps}>{children}</ListItem>
     )
 }
 
-{/* <NavBar>
-<NavBar.List></NavBar.List>
-<NavBar.MenuLogo></NavBar.MenuLogo>
-</NavBar> */}
-
-
 NavBar.List = function NavBarList({ children, ...restProps}) {
     const planetData = usePlanetData();
-    //planetData.forEach(planet => console.log('planets = ', planet.name))
-
-    const currentPlanet = useCurrentPlanet();
+    // const currentPlanet = useCurrentPlanet();
     // console.log('**** List current planet = ', currentPlanet)
 
     const updateCurrentPlanet = useCurrentPlanetUpdate()
 
     function handlePlanetClick(planet) {
-        console.log(`${planet} was clicked `)
+        //console.log(`${planet} was clicked `)
         updateCurrentPlanet(`${planet}`)
         //console.log('updated planet = ', currentPlanet)
     }
@@ -73,17 +56,12 @@ NavBar.List = function NavBarList({ children, ...restProps}) {
 }
 
 NavBar.MenuLogo = function NavBarMenuLogo({ children, ...restProps}) {
-
-    // function handleMenuClick() {
-    //     console.log(" the menu was clicked, so now what ?! ")
-    // }
-
     const imageSource = `images/icon-hamburger.svg`
     
     return (
         <MenuLogo 
             src={imageSource}
-            // onClick={handleMenuClick}
+            alt="menu hamburger"
             {...restProps}>
                 {children}
         </MenuLogo>
@@ -93,17 +71,10 @@ NavBar.MenuLogo = function NavBarMenuLogo({ children, ...restProps}) {
 NavBar.DropDownMenu = function NavBarDropDownMenu({ children, ...restProps}) {
 
     const planetData = usePlanetData();
-    //planetData.forEach(planet => console.log('planets = ', planet.name))
-
-    // const currentPlanet = useCurrentPlanet();
-    // console.log('current planet = ', currentPlanet)
-
     const updateCurrentPlanet = useCurrentPlanetUpdate()
 
     function handleDropDownMenuClick(planet) {
-        //console.log('down down menu item clicked = ', planet)
-        updateCurrentPlanet(`${planet}`)
-        //console.log('updated planet = ', currentPlanet)
+        updateCurrentPlanet(`${planet}`)        
     }    
 
     const imageSource = `images/icon-chevron.svg`
@@ -120,7 +91,7 @@ NavBar.DropDownMenu = function NavBarDropDownMenu({ children, ...restProps}) {
                             >
                                 <DropDownMenuItemPlanet planet={planet.name}/>
                                 <DropDownMenuText >{planet.name.toUpperCase()}</DropDownMenuText>
-                                <DropDownMenuItemChevron src={imageSource} />
+                                <DropDownMenuItemChevron src={imageSource} alt="chevron"/>
                         </DropDownMenuItem>
                     )
                 })

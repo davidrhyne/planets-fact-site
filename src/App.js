@@ -1,12 +1,10 @@
-// import './App.css';
 import { PlanetContextProvider } from './context/PlanetContext'
 import { CategoryProvider } from './context/CategoryContext'
 import { Home } from './pages'
-import {  ThemeProvider, createGlobalStyle } from 'styled-components'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useCurrentPlanet } from './context/CurrentPlanetContext'
-import {THEME} from './constants/themes'
+import { THEME } from './constants/themes'
 import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT } from './constants/constants'
-
 
 function App() {
 

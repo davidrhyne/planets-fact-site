@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import { COLOR_SCHEME, BREAKPOINT } from '../../../constants/constants'
+import { COLOR_SCHEME, FONT_FAMILY, BREAKPOINT } from '../../../constants/constants'
 
 export const Container = styled.div`
-    /* background: ${props => props.theme.ACCENT};  */
-    /* background-color: dodgerblue; */
-    font-family: 'Antonio',sans-serif;
+    font-family: ${FONT_FAMILY.SECONDARY},sans-serif;
     color: ${COLOR_SCHEME.WHITE};
     display: flex;
     justify-content: space-between;
@@ -34,9 +32,7 @@ export const Container = styled.div`
 `
 
 export const Title = styled.div`
-    /* font-size: 800; */
     font-size: 1.75rem;
-    border: 1px solid dodgerblue;
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         /* font-size: 1.5rem; */
@@ -47,5 +43,4 @@ export const Title = styled.div`
         /* padding: .5em 0 0; */
         margin: 0;
     }
-
 `

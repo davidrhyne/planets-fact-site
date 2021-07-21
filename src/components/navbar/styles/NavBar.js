@@ -30,7 +30,7 @@ export const List = styled.div`
     font-family: ${FONT_FAMILY.PRIMARY};
     display: flex;
     justify-content: flex-end;
-    border: 1px magenta solid;
+    /* border: 1px magenta solid; */
 
     /* font-size: 800; */
 

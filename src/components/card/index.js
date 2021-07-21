@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
-import { Container, Title, Text, Void, ButtonPrefix, ButtonSuffix, Button, ButtonGroup, ImageContainer, Image, ImageAccent, Label, LinkContainer, Link, LinkIcon, FactoidContainer, Factoid, FactoidLabel, FactoidFact} from './styles/Card'
-import { usePlanetData } from '../../context/PlanetContext'
-import { useCurrentPlanet, useCurrentPlanetUpdate } from '../../context/CurrentPlanetContext'
+import React from 'react'
+import { Container, Title, Text, 
+         ButtonGroup, ButtonPrefix, Button, ButtonSuffix,
+         ImageContainer, Image, ImageAccent, 
+         LinkContainer, Label, Link, LinkIcon, 
+         FactoidContainer, Factoid, FactoidLabel, FactoidFact
+        } from './styles/Card'
+import { useCurrentPlanet} from '../../context/CurrentPlanetContext'
 import { useCategory, useCategoryUpdate } from '../../context/CategoryContext'
 import { COLOR_SCHEME, PLANET_RATIO } from '../../constants/constants'
 
 
 export default function Card({children, ...restProps}) {
-
-   // const [ category, setCategory ] = useState('overview - state from card')
-
     return (
         <Container { ...restProps}>{children}</Container>
     )
@@ -21,39 +22,9 @@ Card.Title = function CardTitle({ children, ...restProps}) {
     )
 }
 
-Card.Void = function CardVoid({ children, ...restProps}) {
-    return (
-        <Void {...restProps}>{children}</Void>
-    )
-}
-
 Card.Text = function CardText({ children, ...restProps}) {
     return (
         <Text {...restProps}>{children}</Text>
-    )
-}
-
-Card.Label = function CardLabel({ children, ...restProps}) {
-    return (
-        <Label {...restProps}>{children}</Label>
-    )
-}
-
-Card.LinkContainer = function CardLinkContainer({ children, ...restProps}) {
-    return (
-        <LinkContainer {...restProps} target="_blank">{children}</LinkContainer>
-    )
-}
-
-Card.Link = function CardLink({ children, ...restProps}) {
-    return (
-        <Link {...restProps} target="_blank">{children}</Link>
-    )
-}
-
-Card.LinkIcon = function CardLinkIcon({ children, ...restProps}) {
-    return (
-        <LinkIcon {...restProps} target="_blank">{children}</LinkIcon>
     )
 }
 
@@ -69,25 +40,14 @@ Card.ButtonPrefix = function CardButtonPrefix({ children, ...restProps}) {
     )
 }
 
-Card.ButtonSuffix = function CardButtonSuffix({ children, ...restProps}) {
-    return (
-        <ButtonSuffix  {...restProps}>{children}</ButtonSuffix>
-    )
-}
-
 Card.Button = function CardButton({ children, ...restProps}) {
     const currentPlanet = useCurrentPlanet()
-    // console.log('button group current planet =', currentPlanet)
-
     const category = useCategory()
-    // console.log('category = ', category)
-    // console.log('sliced category = ', category.slice(0,8).toLowerCase())
-
     const updateCategory = useCategoryUpdate();
+
     function handleButtonClick(value) {
 
-        // if the prefix or suffix is clicked instead of anywhere else on the button
-        // then adjust the value to the expected category value
+        /* if the prefix or suffix is clicked instead of anywhere else on the button, then adjust the value to the expected category value */
         if (value === '01') {
             updateCategory('Overview')
         } else if (value === '02' || value.trim() === 'Structure') {
@@ -97,9 +57,9 @@ Card.Button = function CardButton({ children, ...restProps}) {
         } else {
             updateCategory(value.slice(2))
         }
-
     }
 
+    // resoloves the accent color used as the background for the button
     function getPlanetAccentColor() {
         return currentPlanet === 'Mercury' ? COLOR_SCHEME.MERCURY : 
         currentPlanet === 'Venus' ? COLOR_SCHEME.VENUS :
@@ -112,21 +72,26 @@ Card.Button = function CardButton({ children, ...restProps}) {
     }
 
     return (
-        <Button {...restProps} category={category.slice(0,7).toLowerCase()}  planet={currentPlanet} color={getPlanetAccentColor()} onClick={ ({target})=> handleButtonClick(target.textContent)} >{children}</Button>
-        // <Button {...restProps} >{children}</Button>
+        <Button 
+            {...restProps} 
+            category={category.slice(0,7).toLowerCase()}  
+            planet={currentPlanet} color={getPlanetAccentColor()} 
+            onClick={ ({target})=> handleButtonClick(target.textContent)} 
+        >
+            {children}
+        </Button>
+    )
+}
+
+Card.ButtonSuffix = function CardButtonSuffix({ children, ...restProps}) {
+    return (
+        <ButtonSuffix  {...restProps}>{children}</ButtonSuffix>
     )
 }
 
 Card.ImageContainer = function CardImageContainer({ children, ...restProps}) {
     return (
         <ImageContainer {...restProps} >{children}</ImageContainer>
-    )
-}
-
-
-Card.ImageAccent = function CardImageAccent({ ...restProps}) {
-    return (
-        <ImageAccent {...restProps} />
     )
 }
 
@@ -138,8 +103,9 @@ Card.Image = function CardImage({ ...restProps}) {
     const pictureSuffix = category.slice(0,8) !== 'Internal' ? "" : "-internal"
     const imageSource = `images/planet-${currentPlanet.toLowerCase()}${pictureSuffix}.svg`
     const geologySource = `images/geology-${currentPlanet.toLowerCase()}.png`
-    const altDescription = category.slice(0,8) === 'Internal' ? `stylistic rendering of the internal layers of planet ${currentPlanet}` : `stylistic rendering of the planet ${currentPlanet}` 
-
+    const altDescription = category.slice(0,8) === 'Internal' ? 
+        `stylistic rendering of the internal layers of planet ${currentPlanet}` : 
+        `stylistic rendering of the planet ${currentPlanet}` 
     
     const ratio = currentPlanet === 'Mercury' ? PLANET_RATIO.MERCURY : 
         currentPlanet === 'Venus' ? PLANET_RATIO.VENUS :
@@ -149,13 +115,47 @@ Card.Image = function CardImage({ ...restProps}) {
         currentPlanet === 'Saturn' ? PLANET_RATIO.SATURN :
         currentPlanet === 'Uranus' ? PLANET_RATIO.URANUS :
             PLANET_RATIO.NEPTUNE
-    console.log('ratio = ', ratio)
+    // console.log('ratio = ', ratio)
 
     return (
         <>
             <Image ratio={ratio} src={imageSource} alt={altDescription} {...restProps} />
-            { category.slice(0,7) === 'Surface' ? <ImageAccent src={geologySource} alt={`geology of the planet ${currentPlanet}`} {...restProps} /> : null  }
+                { category.slice(0,7) === 'Surface' ? 
+                    <ImageAccent src={geologySource} alt={`geology of the planet ${currentPlanet}`} {...restProps} /> 
+                    : null  
+                }
         </>
+    )
+}
+
+Card.ImageAccent = function CardImageAccent({ ...restProps}) {
+    return (
+        <ImageAccent {...restProps} />
+    )
+}
+
+
+Card.LinkContainer = function CardLinkContainer({ children, ...restProps}) {
+    return (
+        <LinkContainer {...restProps} >{children}</LinkContainer>
+    )
+}
+
+Card.Label = function CardLabel({ children, ...restProps}) {
+    return (
+        <Label {...restProps}>{children}</Label>
+    )
+}
+
+Card.Link = function CardLink({ children, ...restProps}) {
+    return (
+        <Link {...restProps} target="_blank" rel="noreferrer">{children}</Link>
+    )
+}
+
+Card.LinkIcon = function CardLinkIcon({ children, ...restProps}) {
+    return (
+        <LinkIcon {...restProps} target="_blank" rel="noreferrer" alt="wikipedia link">{children}</LinkIcon>
     )
 }
 

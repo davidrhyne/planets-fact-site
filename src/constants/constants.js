@@ -1,7 +1,4 @@
 export const COLOR_SCHEME = {
-    // WHITE: '#fff',
-    // PRIMARY: '#070724',
-    // SECONDARY:'#38384f',
     MERCURY: '#419ebb',
     VENUS: '#eda249',
     EARTH: '#6f2ed6',
@@ -31,9 +28,9 @@ export const MEDIA_QUERY = {
     HORIZONTAL_RULE: '600px'
 }
 
-export const BOX_SHADOW = {
-    PRIMARY_COLOR: '0px 10px 15px 0px rgba(91,164,164,.4);'
-}
+// export const BOX_SHADOW = {
+//     PRIMARY_COLOR: '0px 10px 15px 0px rgba(91,164,164,.4);'
+// }
 
 export const FONT_WEIGHT = {
     REGULAR: 400,
@@ -62,5 +59,4 @@ export const BREAKPOINT = {
     TABLET: '700px',
     DESKTOP: '1000px',
     MAX: '1500px'
-
 }
