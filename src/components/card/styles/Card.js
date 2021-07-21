@@ -36,7 +36,7 @@ export const Container = styled.div`
         display: grid;
         margin: 0 auto;
         gap: 0 1em; */
-        grid-template-columns: repeat(2, 1fr) minmax(400px,1fr); 
+        grid-template-columns: repeat(2, 1fr) 350px; 
         grid-template-rows: 1fr;
         grid-template-areas: 
             "image image title"
@@ -57,17 +57,19 @@ export const Title = styled.div`
     font-weight: ${FONT_WEIGHT.MEDIUM};
     text-transform: uppercase;
     margin: .2em ;
+    border: 1px solid red;
     
 
     @media (min-width: ${BREAKPOINT.TABLET}) {
         font-size: 3rem;
         margin-left: 0;
+        margin-top: .5em;
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: 5rem;
         margin-bottom: .1em;
-        
+        padding: 1em 0 .1em;
     }
 
 `
@@ -88,11 +90,14 @@ export const Text = styled.div`
     @media (min-width: ${BREAKPOINT.TABLET}) {
         text-align: left;
         max-width: unset;
+        padding: 1em 0 2em;
     }
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         font-size: .875rem;
-        line-height: 1.6;
-        padding: 1em 0 2em;
+        line-height: 1.8;
+        width: 100%;
+        padding: 0;
+        min-height: 180px;
     }
 
 `
@@ -118,8 +123,8 @@ export const ButtonGroup = styled.div`
     }
 
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
-        margin-bottom: 4em;
-        font-size: .875rem;
+        margin-bottom: 6em;
+        font-size: .75rem;
     }
 
 `
@@ -194,7 +199,8 @@ export const Button = styled.div`
     
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         margin-left: 0;
-
+        padding: 1.5em 2.5em;
+        margin-bottom: 1em;
     }
 `
 export const ImageContainer = styled.div`
@@ -216,6 +222,7 @@ export const ImageContainer = styled.div`
   
     @media (min-width: ${BREAKPOINT.SMALL_TABLET}) {
         min-height: 425px;
+        
 
     }
 
@@ -294,6 +301,9 @@ export const LinkContainer = styled.div`
     display: flex;    
     margin: 0 0 3em;
 
+    @media (min-width: ${BREAKPOINT.TABLET}) {
+        margin: 0 0 4em;
+    }
 
 `
 
@@ -333,6 +343,7 @@ export const FactoidContainer = styled.div`
         justify-content: space-between;
         padding: 0;
     }
+
 `
 
 
@@ -358,6 +369,7 @@ export const Factoid = styled.div`
     
     @media (min-width: ${BREAKPOINT.DESKTOP}) {
         width: 23%;
+        padding: 2.5em;
     }
 
 `

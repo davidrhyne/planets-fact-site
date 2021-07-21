@@ -80,22 +80,19 @@ Card.Button = function CardButton({ children, ...restProps}) {
     // console.log('button group current planet =', currentPlanet)
 
     const category = useCategory()
-    console.log('category = ', category)
-    console.log('sliced category = ', category.slice(0,8).toLowerCase())
-
-    
+    // console.log('category = ', category)
+    // console.log('sliced category = ', category.slice(0,8).toLowerCase())
 
     const updateCategory = useCategoryUpdate();
     function handleButtonClick(value) {
-        console.log('button update value = ', value)
-        console.log('button update value sliced = ', value.slice(2))
-        // if the prefix is clicked instead of anywhere else on the button
+
+        // if the prefix or suffix is clicked instead of anywhere else on the button
         // then adjust the value to the expected category value
         if (value === '01') {
             updateCategory('Overview')
-        } else if (value === '02') {
+        } else if (value === '02' || value.trim() === 'Structure') {
             updateCategory('Internal Structure')
-        } else if (value === '03') {
+        } else if (value === '03' || value.trim() === 'Geology') {
             updateCategory('Surface Geology')
         } else {
             updateCategory(value.slice(2))

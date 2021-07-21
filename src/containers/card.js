@@ -30,7 +30,7 @@ export function CardContainer( {children, ...restProps}) {
         console.log('data loaded currentPlanetData = ', currentPlanetData.name)
 
     }
-
+    
     return (        
         <Card>
             <Card.ButtonGroup>
@@ -66,7 +66,7 @@ export function CardContainer( {children, ...restProps}) {
                     <Card.Text>
                         {category === 'Overview' ? 
                             currentPlanetData.overview.content :
-                            category === 'Internal Structure' || category === 'Internal' ?
+                            category.slice(0,8) === 'Internal' ?
                             currentPlanetData.structure.content :
                             currentPlanetData.geology.content}
                     </Card.Text>
@@ -75,7 +75,7 @@ export function CardContainer( {children, ...restProps}) {
                         <Card.Label>Source : </Card.Label>
                         <Card.Link href={category === 'Overview' ? 
                                 currentPlanetData.overview.source :
-                                category === 'Internal Structure' || category === 'Internal' ?
+                                category.slice(0,8) === 'Internal' ?
                                 currentPlanetData.structure.source :
                                 currentPlanetData.geology.source}>
                                     Wikipedia
